@@ -7,7 +7,7 @@ export default class Fish{
         this.reels = makeFish.reels; //num of pulls after hooked
         this.score = makeFish.score;
         
-        this.body = Fish.makeBody();
+        //this.body = Fish.makeBody();
     }
     
     fishGenerator(seedNum){
