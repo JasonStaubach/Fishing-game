@@ -1,8 +1,14 @@
-import Example from "./scripts/example"
+
+import Fish from "./scripts/fish"
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Hello Fishing Pond")
+    const canvasEl = document.getElementById("game-canvas");
+    const ctx = canvasEl.getContext("2d");
+
 
     new Example(main)
+
+    let fish = new Fish()
+    console.log(fish.name);
     //start game in here
 })
