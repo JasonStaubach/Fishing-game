@@ -2,8 +2,14 @@ import Pond from "./pond"
 export default class Game{
     static PIX_X = 800;
     static PIX_Y = 600;
-    constructor(){
+    constructor(ctx){
+        this.fish = [];
+        this.pond = new Pond(ctx);
+    }
 
-        this.drawPond();
+    draw(ctx){
+        this.fish.forEach( fishy => {
+            fishy.draw(ctx)
+        });
     }
 }

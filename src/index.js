@@ -9,8 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
     canvasEl.width = Game.PIX_X;
     canvasEl.height = Game.PIX_Y;
 
+
+    
+    let game = new Game(ctx)
     let fish = new Fish()
-    let pond = new Pond(ctx)
-    console.log(fish.name);
+    fish.draw(ctx);
+    // let fish = new Fish()
+    // let pond = new Pond(ctx)
+    // console.log(fish.name);
     //start game in here
 })
