@@ -33,6 +33,7 @@ export default class Fish{
 
     
     draw(ctx){
+        console.log(this.color)
         ctx.fillStyle = this.color
         
         ctx.beginPath();

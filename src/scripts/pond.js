@@ -9,7 +9,7 @@ export default class Pond{
 
         setInterval( function() {
             let fish = new Fish();
-            fish.draw();
+            fish.draw(ctx);
         }, 10000)
     }
 
