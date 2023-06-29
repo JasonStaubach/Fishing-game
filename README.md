@@ -21,12 +21,12 @@ This project will primarily be made with canvas
 Timeline
 
 Friday Afternoon & Weekend
-  Get fish moving in pond, click them to update scoreboard
+  -Get fish moving in pond, click them to update scoreboard
 Monday
-  add display for top 3 rarest fish
+  -add display for top 3 rarest fish
 Tuesday
-  add timing minigame to fishing gameplay loop
+  -add timing minigame to fishing gameplay loop
 Wednesday
-  add timer and shore up css
+  -add timer and shore up css
 Thursday Morning
-  clean up project for presentation
+  -clean up project for presentation

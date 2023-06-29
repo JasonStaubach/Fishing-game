@@ -1,0 +1,7 @@
+//this is where all our styling goes
+//should not have alot of logic, just import styling
+@import "./styles/example.scss";
+
+#main {
+    color: $color;
+}
