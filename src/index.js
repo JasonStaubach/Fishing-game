@@ -1,6 +1,7 @@
 
 import Fish from "./scripts/fish"
 import Game from "./scripts/game"
+import Pond from "./scripts/pond"
 
 document.addEventListener("DOMContentLoaded", () => {
     const canvasEl = document.getElementById("game-canvas");
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     canvasEl.height = Game.PIX_Y;
 
     let fish = new Fish()
+    let pond = new Pond(ctx)
     console.log(fish.name);
     //start game in here
 })
