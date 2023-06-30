@@ -12,10 +12,13 @@ export default class Pond{
         this.score = new Score(ctx, this.score);
 
         setInterval(() => {
-            let fish = new Fish();
-            this.fishes.push(fish);
-            fish.draw(ctx);
-            console.log(this.score)
+            let count = 0
+            while(count < 2){
+                count++;
+                let fish = new Fish();
+                this.fishes.push(fish);
+                fish.draw(ctx);
+            }
         }, 10000)
 
         setInterval(() => {
@@ -71,6 +74,8 @@ export default class Pond{
 
     catch(fish){
         this.score.addScore(fish.score);
+        // debugger
+        this.score.topThree(fish)               //if necissary, adds fish to top 3 fish caught
         this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
         console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
         // console.log(fishArr.indexOf(this))
