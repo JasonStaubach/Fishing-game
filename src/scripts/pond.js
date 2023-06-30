@@ -24,6 +24,9 @@ export default class Pond{
                 fishy.draw(ctx);
             })
         }, 50);
+        this.checkClick = this.checkClick.bind(this);
+
+        document.getElementById("game-canvas").addEventListener("click", this.checkClick)
     }
 
     drawPond(ctx){
@@ -62,5 +65,19 @@ export default class Pond{
         this.fish.forEach( fishy => {
             fishy.draw(ctx)
         });
+    }
+
+    checkClick(e){
+    //    let cursorX = e.pageX
+    //    let cursorY = e.pageY
+        const canvasEl = document.getElementById("game-canvas");
+        let cursorX = e.clientX - canvasEl.getBoundingClientRect().left
+        let cursorY = e.clientY - canvasEl.getBoundingClientRect().top
+       this.fishes.forEach( fish => {
+            if((cursorX >= fish.pos[0] && cursorX <= (fish.pos[0] + 20)) &&
+            (cursorY >= fish.pos[1] && cursorY <= (fish.pos[1] + 10))){
+                fish.catch();
+            }
+       });
     }
 }

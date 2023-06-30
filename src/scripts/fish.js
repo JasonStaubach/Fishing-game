@@ -47,7 +47,7 @@ export default class Fish{
         ctx.fillStyle = this.color
         
         ctx.beginPath();
-        let babyFish = new Path2D()
+        // babyFish = new Path2D()
         // ctx.moveTo(10, 50);
         ctx.bezierCurveTo(0 + this.pos[0],0 + this.pos[1], 5 + this.pos[0], 5 + this.pos[1] ,20 + this.pos[0], 10 + this.pos[1])
         ctx.bezierCurveTo(20 + this.pos[0], 10 + this.pos[1], 40 + this.pos[0], 5 + this.pos[1], 20 + this.pos[0], 0 + this.pos[1])
@@ -82,4 +82,6 @@ export default class Fish{
             // this.pos = [this.pos[0] + this.vel[0], this.pos[0] + this.vel[0]];
         }
     }
+
+    
 }

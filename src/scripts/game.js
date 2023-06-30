@@ -5,6 +5,7 @@ export default class Game{
     static PIX_Y = 600;
     constructor(ctx){
         this.pond = new Pond(ctx);
+        this.score = 0;
         
     }
 
