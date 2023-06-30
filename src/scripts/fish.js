@@ -2,7 +2,7 @@ import * as Util from "./util";
 export default class Fish{
 
     constructor(){
-        let makeFish = this.fishGenerator(Math.floor(Math.random()*1000));
+        let makeFish = this.fishGenerator();
         
         this.name = makeFish.name;
         this.reels = makeFish.reels; //num of pulls after hooked
@@ -14,7 +14,7 @@ export default class Fish{
         
     }
     
-    fishGenerator(seedNum){
+    fishGenerator(){
         const FISHCLASS = [
             {name:"catfish",reels: 2, score: 100, color: "#d6ae40", img: "catfish.jpg"},
             {name:"dogfish",reels: 2, score: 150, color: "#a89665", img: "dogfish.jpg"},
@@ -22,12 +22,14 @@ export default class Fish{
             {name: "Queen Angelfish", reels: 3, score: 500, color: "#0075a3", img: "queen_angelfish.jpg"}
         ]
         
+        let seedNum = Math.floor(Math.random()*1000)
+        console.log(seedNum)
         switch(seedNum){
-            case(seedNum < 100): //0-100 Catfish
+            case(seedNum < 300): //0-100 Catfish
                 return FISHCLASS[0];
-            case(seedNum < 150):           //100-150 dogfish
+            case(seedNum < 600):           //100-150 dogfish
                 return FISHCLASS[1];
-            case(seedNum < 160):           //150-160 juvenile drum
+            case(seedNum < 900):           //150-160 juvenile drum
                 return FISHCLASS[2];
             default:                      //TEMP!! 160-1000 Queen Angelfish
                 return FISHCLASS[3];
@@ -36,7 +38,7 @@ export default class Fish{
 
     
     draw(ctx){
-        console.log(this.color)
+        // console.log(this.color)
         ctx.fillStyle = this.color
         
         ctx.beginPath();

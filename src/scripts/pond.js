@@ -1,4 +1,5 @@
 import Fish from "./fish";
+import Game from "./game";
 
 export default class Pond{
     static COLOR = "lightblue"
@@ -16,6 +17,9 @@ export default class Pond{
         }, 10000)
 
         setInterval(() => {
+            ctx.clearRect(0,0,Game.PIX_X,Game.PIX_Y);
+            console.log(Game.PIX_X)
+            this.drawPond(ctx);
             this.fishes.forEach( fishy =>{
                 fishy.move(ctx, this.pondOutline);
                 fishy.draw(ctx);
