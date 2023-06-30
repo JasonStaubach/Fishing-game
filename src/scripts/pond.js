@@ -74,7 +74,7 @@ export default class Pond{
         });
         }
        this.canClick = false;
-       setTimeout(() => this.canClick = true, 1000)
+       setTimeout(() => this.canClick = true, 3000)
     }
 
     clickable(ctx){
