@@ -1,5 +1,6 @@
 import Fish from "./fish";
 import Game from "./game";
+import Score from "./score"
 
 export default class Pond{
     static COLOR = "lightblue"
@@ -7,13 +8,14 @@ export default class Pond{
     constructor(ctx){
         this.fishes = [];
         this.pondOutline = this.drawPond(ctx)
-
         this.fishes.push(new Fish());
+        this.score = 0;
 
         setInterval(() => {
             let fish = new Fish();
             this.fishes.push(fish);
             fish.draw(ctx);
+            console.log(this.score)
         }, 10000)
 
         setInterval(() => {
@@ -25,6 +27,7 @@ export default class Pond{
             })
         }, 50);
         this.checkClick = this.checkClick.bind(this);
+        this.catch = this.catch.bind(this);
 
         document.getElementById("game-canvas").addEventListener("click", this.checkClick)
     }
@@ -42,25 +45,8 @@ export default class Pond{
         pond.bezierCurveTo(100, 300, 40, 345, 50, 375)
         ctx.stroke(pond);
         return pond;
-        // pond.fillStyle() = "blue";
-        // pond.fill();
-        
-        //ctx version of pond
-
-        // ctx.beginPath();
-        // ctx.moveTo(50, 375);
-        // ctx.bezierCurveTo(100, 500, 700, 700, 600, 400);
-        // // ctx.moveTo(600,400)
-        // ctx.bezierCurveTo(600, 400, 500, 40, 100, 150);
-        // // ctx.moveTo(100,150)
-        // ctx.bezierCurveTo(100,150,60, 170, 100, 200);
-        // ctx.bezierCurveTo(100,200, 160, 245, 100, 300)
-        // ctx.bezierCurveTo(100, 300, 40, 345, 50, 375)
-        // ctx.fillStyle() = "blue";
-        // ctx.fill();
-
-        // ctx.stroke();
     }
+
     draw(ctx){
         this.fish.forEach( fishy => {
             fishy.draw(ctx)
@@ -76,8 +62,17 @@ export default class Pond{
        this.fishes.forEach( fish => {
             if((cursorX >= fish.pos[0] && cursorX <= (fish.pos[0] + 20)) &&
             (cursorY >= fish.pos[1] && cursorY <= (fish.pos[1] + 10))){
-                fish.catch();
+                this.catch(fish);
             }
        });
     }
+
+    catch(fish){
+        this.score += fish.score;
+        this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
+        console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
+        // console.log(fishArr.indexOf(this))
+    }
+
+    
 }
