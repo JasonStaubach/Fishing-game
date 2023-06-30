@@ -24,7 +24,7 @@ export default class Fish{
         ]
         
         let seedNum = Math.random()*1000;
-        // console.log(seedNum)
+        console.log(seedNum)
         let fish = null;
 
             if (seedNum < 300){ //0-100 Catfish
@@ -49,12 +49,9 @@ export default class Fish{
         ctx.beginPath();
         let babyFish = new Path2D()
         // ctx.moveTo(10, 50);
-        ctx.bezierCurveTo(0 + this.pos[0],0 + this.pos[1], 5 + this.pos[0], 5 + this.pos[1] ,20 + this.pos[0], 10 + this.pos[1])
-        ctx.bezierCurveTo(20 + this.pos[0], 10 + this.pos[1], 40 + this.pos[0], 5 + this.pos[1], 20 + this.pos[0], 0 + this.pos[1])
-        ctx.bezierCurveTo(20 + this.pos[0], 0 + this.pos[1], 5 + this.pos[0],5 + this.pos[1], 0 + this.pos[0], 10 + this.pos[1])
-        ctx.lineTo(0 + this.pos[0],0 + this.pos[1])
-        ctx.stroke();
+        ctx.rect(0 + this.pos[0], 0 + this.pos[1], 20, 10)
         // ctx.rotate(this.rotation)
+        ctx.stroke()
         ctx.fill();
     }
     static randomPosition(){
