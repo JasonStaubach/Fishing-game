@@ -18,7 +18,6 @@ export default class Pond{
 
         setInterval(() => {
             ctx.clearRect(0,0,Game.PIX_X,Game.PIX_Y);
-            console.log(Game.PIX_X)
             this.drawPond(ctx);
             this.fishes.forEach( fishy =>{
                 fishy.move(ctx, this.pondOutline);

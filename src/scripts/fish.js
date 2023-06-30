@@ -11,6 +11,7 @@ export default class Fish{
         this.pos = Fish.randomPosition();
         this.vel = Util.randomVec();
         this.timeToChangeDir = (Math.floor(Math.random() * 15) + 5)
+        this.rotation = (Math.atan(this.vel[0]/this.vel[1]) * 180/Math.PI) //converts the velocity of the fish into rotation in degrees
         
     }
     
@@ -22,18 +23,22 @@ export default class Fish{
             {name: "Queen Angelfish", reels: 3, score: 500, color: "#0075a3", img: "queen_angelfish.jpg"}
         ]
         
-        let seedNum = Math.floor(Math.random()*1000)
-        console.log(seedNum)
-        switch(seedNum){
-            case(seedNum < 300): //0-100 Catfish
-                return FISHCLASS[0];
-            case(seedNum < 600):           //100-150 dogfish
-                return FISHCLASS[1];
-            case(seedNum < 900):           //150-160 juvenile drum
-                return FISHCLASS[2];
-            default:                      //TEMP!! 160-1000 Queen Angelfish
-                return FISHCLASS[3];
-        }
+        let seedNum = Math.random()*1000;
+        // console.log(seedNum)
+        let fish = null;
+
+            if (seedNum < 300){ //0-100 Catfish
+                fish = FISHCLASS[0];
+            }else if (seedNum < 600){ 
+                fish = FISHCLASS[1];        //100-150 dogfish
+            }else if (seedNum < 900){           //150-160 juvenile drum
+                fish = FISHCLASS[2];
+            } else {                    //TEMP!! 160-1000 Queen Angelfish
+                fish = FISHCLASS[3];
+            }
+
+        console.log(fish);
+        return fish;
     }
 
     
@@ -42,12 +47,14 @@ export default class Fish{
         ctx.fillStyle = this.color
         
         ctx.beginPath();
+        let babyFish = new Path2D()
         // ctx.moveTo(10, 50);
         ctx.bezierCurveTo(0 + this.pos[0],0 + this.pos[1], 5 + this.pos[0], 5 + this.pos[1] ,20 + this.pos[0], 10 + this.pos[1])
         ctx.bezierCurveTo(20 + this.pos[0], 10 + this.pos[1], 40 + this.pos[0], 5 + this.pos[1], 20 + this.pos[0], 0 + this.pos[1])
         ctx.bezierCurveTo(20 + this.pos[0], 0 + this.pos[1], 5 + this.pos[0],5 + this.pos[1], 0 + this.pos[0], 10 + this.pos[1])
         ctx.lineTo(0 + this.pos[0],0 + this.pos[1])
         ctx.stroke();
+        // ctx.rotate(this.rotation)
         ctx.fill();
     }
     static randomPosition(){
@@ -66,7 +73,7 @@ export default class Fish{
         }
         let newX = this.pos[0] + this.vel[0];
         let newY = this.pos[1] + this.vel[1];
-        console.log(pond)
+        // console.log(pond)
         if(ctx.isPointInPath(pond, newX, newY)){
             this.pos = [newX, newY]
         } else {  
