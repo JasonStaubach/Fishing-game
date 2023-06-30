@@ -20,21 +20,24 @@ export default class Fish{
             {name:"Catfish",reels: 2, score: 100, color: "#d6ae40", img: "catfish.jpg"},
             {name:"Dogfish",reels: 2, score: 150, color: "#a89665", img: "dogfish.jpg"},
             {name: "Juvenile Drum",reels: 1, score: 200, color: "#000000", img: "juvenile_drum.jpg"},
-            {name: "Queen Angelfish", reels: 3, score: 500, color: "#0075a3", img: "queen_angelfish.jpg"}
+            {name: "Queen Angelfish", reels: 3, score: 500, color: "#0075a3", img: "queen_angelfish.jpg"},
+            {name: "Starfish", reels: 2, score: 150, color: "#eb34eb", img: "starfish.jpg"}
         ]
         
         let seedNum = Math.random()*1000;
         // console.log(seedNum)
         let fish = null;
 
-            if (seedNum < 300){ //0-100 Catfish
+            if (seedNum < 200){ //0-100 Catfish
                 fish = FISHCLASS[0];
-            }else if (seedNum < 600){ 
+            }else if (seedNum < 400){ 
                 fish = FISHCLASS[1];        //100-150 dogfish
-            }else if (seedNum < 900){           //150-160 juvenile drum
+            }else if (seedNum < 600){           //150-160 juvenile drum
                 fish = FISHCLASS[2];
-            } else {                    //TEMP!! 160-1000 Queen Angelfish
+            } else if (seedNum < 800) {                    //TEMP!! 160-1000 Queen Angelfish
                 fish = FISHCLASS[3];
+            } else {
+                fish = FISHCLASS[4];
             }
 
         console.log(fish);
