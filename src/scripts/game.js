@@ -5,6 +5,11 @@ export default class Game{
     constructor(ctx){
         this.fish = [];
         this.pond = new Pond(ctx);
+        
+        setInterval( function() {
+            let fish = new Fish();
+            fish.draw(ctx);
+        }, 10000)
     }
 
     draw(ctx){

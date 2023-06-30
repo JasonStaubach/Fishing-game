@@ -4,13 +4,7 @@ export default class Pond{
     static COLOR = "lightblue"
     static RADIUS = 200;
     constructor(ctx){
-        this.fish = []
         this.drawPond(ctx)
-
-        setInterval( function() {
-            let fish = new Fish();
-            fish.draw(ctx);
-        }, 10000)
     }
 
     drawPond(ctx){

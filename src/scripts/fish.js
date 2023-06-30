@@ -1,3 +1,4 @@
+import * as Util from "./util"; 
 export default class Fish{
 
     constructor(){
@@ -8,7 +9,8 @@ export default class Fish{
         this.score = makeFish.score;
         this.color = makeFish.color;
         this.pos = Fish.randomPosition();
-        // this.vel = Fish.randomVelocity();
+        this.vel = Util.randomVec();
+        this.timeToChangeDir = (Math.floor(Math.random() * 500) + 500)
         
     }
     
@@ -51,5 +53,16 @@ export default class Fish{
         let pos1 = (Math.random() * 300) + 150;
         let pos2 = (Math.random() * 265) + 200;
         return [pos1,pos2]
+    }
+
+    move(){
+        if(this.timeToChangeDir === 0){
+            this.vel = Util.randomVec();
+        } else {
+            this.timeToChangeDir--;
+        }
+
+
+        this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
     }
 }
