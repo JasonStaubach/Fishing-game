@@ -10,7 +10,7 @@ export default class Fish{
         this.color = makeFish.color;
         this.pos = Fish.randomPosition();
         this.vel = Util.randomVec();
-        this.timeToChangeDir = (Math.floor(Math.random() * 500) + 500)
+        this.timeToChangeDir = (Math.floor(Math.random() * 15) + 5)
         
     }
     
@@ -58,6 +58,7 @@ export default class Fish{
     move(){
         if(this.timeToChangeDir === 0){
             this.vel = Util.randomVec();
+            this.timeToChangeDir = (Math.floor(Math.random() * 15) + 5)
         } else {
             this.timeToChangeDir--;
         }
