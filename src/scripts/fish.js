@@ -1,17 +1,20 @@
+import * as Util from "./util"; 
 export default class Fish{
 
     constructor(){
-        let makeFish = this.fishGenerator(Math.floor(Math.random()*1000));
+        let makeFish = this.fishGenerator();
         
         this.name = makeFish.name;
         this.reels = makeFish.reels; //num of pulls after hooked
         this.score = makeFish.score;
         this.color = makeFish.color;
         this.pos = Fish.randomPosition();
-        //this.body = Fish.makeBody();
+        this.vel = Util.randomVec();
+        this.timeToChangeDir = (Math.floor(Math.random() * 15) + 5)
+        
     }
     
-    fishGenerator(seedNum){
+    fishGenerator(){
         const FISHCLASS = [
             {name:"catfish",reels: 2, score: 100, color: "#d6ae40", img: "catfish.jpg"},
             {name:"dogfish",reels: 2, score: 150, color: "#a89665", img: "dogfish.jpg"},
@@ -19,12 +22,14 @@ export default class Fish{
             {name: "Queen Angelfish", reels: 3, score: 500, color: "#0075a3", img: "queen_angelfish.jpg"}
         ]
         
+        let seedNum = Math.floor(Math.random()*1000)
+        console.log(seedNum)
         switch(seedNum){
-            case(seedNum < 100): //0-100 Catfish
+            case(seedNum < 300): //0-100 Catfish
                 return FISHCLASS[0];
-            case(seedNum < 150):           //100-150 dogfish
+            case(seedNum < 600):           //100-150 dogfish
                 return FISHCLASS[1];
-            case(seedNum < 160):           //150-160 juvenile drum
+            case(seedNum < 900):           //150-160 juvenile drum
                 return FISHCLASS[2];
             default:                      //TEMP!! 160-1000 Queen Angelfish
                 return FISHCLASS[3];
@@ -33,7 +38,7 @@ export default class Fish{
 
     
     draw(ctx){
-        console.log(this.color)
+        // console.log(this.color)
         ctx.fillStyle = this.color
         
         ctx.beginPath();
@@ -43,11 +48,31 @@ export default class Fish{
         ctx.bezierCurveTo(20 + this.pos[0], 0 + this.pos[1], 5 + this.pos[0],5 + this.pos[1], 0 + this.pos[0], 10 + this.pos[1])
         ctx.lineTo(0 + this.pos[0],0 + this.pos[1])
         ctx.stroke();
-        ctx.fill;
+        ctx.fill();
     }
     static randomPosition(){
-        let pos1 = Math.random() * 800;
-        let pos2 = Math.random() * 600;
+        //ctx.rect(150,200, 300, 265) spawning area
+        let pos1 = (Math.random() * 300) + 150;
+        let pos2 = (Math.random() * 265) + 200;
         return [pos1,pos2]
+    }
+
+    move(ctx, pond){
+        if(this.timeToChangeDir === 0){
+            this.vel = Util.randomVec();
+            this.timeToChangeDir = (Math.floor(Math.random() * 15) + 5)
+        } else {
+            this.timeToChangeDir--;
+        }
+        let newX = this.pos[0] + this.vel[0];
+        let newY = this.pos[1] + this.vel[1];
+        console.log(pond)
+        if(ctx.isPointInPath(pond, newX, newY)){
+            this.pos = [newX, newY]
+        } else {  
+            this.vel = Util.randomVec()
+            // this.vel = [-1 * this.vel[0],-1 * this.vel[1]]
+            // this.pos = [this.pos[0] + this.vel[0], this.pos[0] + this.vel[0]];
+        }
     }
 }

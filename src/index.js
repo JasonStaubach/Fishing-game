@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     let game = new Game(ctx)
-    let fish = new Fish()
-    fish.draw(ctx);
     // let fish = new Fish()
     // let pond = new Pond(ctx)
     // console.log(fish.name);
