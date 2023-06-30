@@ -9,7 +9,7 @@ export default class Pond{
         this.fishes = [];
         this.pondOutline = this.drawPond(ctx)
         this.fishes.push(new Fish());
-        this.score = 0;
+        this.score = new Score(ctx, this.score);
 
         setInterval(() => {
             let fish = new Fish();
@@ -21,6 +21,8 @@ export default class Pond{
         setInterval(() => {
             ctx.clearRect(0,0,Game.PIX_X,Game.PIX_Y);
             this.drawPond(ctx);
+            if(this.score === undefined) debugger
+            this.score.drawScore(ctx)
             this.fishes.forEach( fishy =>{
                 fishy.move(ctx, this.pondOutline);
                 fishy.draw(ctx);
@@ -68,7 +70,7 @@ export default class Pond{
     }
 
     catch(fish){
-        this.score += fish.score;
+        this.score.addScore(fish.score);
         this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
         console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
         // console.log(fishArr.indexOf(this))
