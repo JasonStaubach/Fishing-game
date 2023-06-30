@@ -10,6 +10,20 @@ export default class Score{
     drawScore(ctx){
         ctx.font = "44px Lucida Console";
         ctx.strokeText(`Score: ${this.score}`, 120, 50);
+
+        ctx.font = "36px Lucida Console"
+        ctx.strokeText('Top 3 Rarest Fish', 600, 50)
+
+        if(this.rareThree.length){
+            ctx.font = "30px Lucida Console"
+            ctx.strokeText(`${this.rareThree[0].name}`.padEnd(16, " ") +  `Score: ${this.rareThree[0].score}`, 600, 100)
+            if(this.rareThree.length > 1){
+                ctx.strokeText(`${this.rareThree[1].name}`.padEnd(16, " ") +  `Score: ${this.rareThree[1].score}`, 600, 200)
+                if(this,this.rareThree.length > 2){
+                    ctx.strokeText(`${this.rareThree[2].name}`.padEnd(16, " ") +  `Score: ${this.rareThree[2].score}`, 600, 300)
+                }
+            }
+        } 
     }
 
     addScore(num){

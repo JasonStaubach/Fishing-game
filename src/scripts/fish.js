@@ -17,9 +17,9 @@ export default class Fish{
     
     fishGenerator(){
         const FISHCLASS = [
-            {name:"catfish",reels: 2, score: 100, color: "#d6ae40", img: "catfish.jpg"},
-            {name:"dogfish",reels: 2, score: 150, color: "#a89665", img: "dogfish.jpg"},
-            {name: "juvenile drum",reels: 1, score: 200, color: "#000000", img: "juvenile_drum.jpg"},
+            {name:"Catfish",reels: 2, score: 100, color: "#d6ae40", img: "catfish.jpg"},
+            {name:"Dogfish",reels: 2, score: 150, color: "#a89665", img: "dogfish.jpg"},
+            {name: "Juvenile Drum",reels: 1, score: 200, color: "#000000", img: "juvenile_drum.jpg"},
             {name: "Queen Angelfish", reels: 3, score: 500, color: "#0075a3", img: "queen_angelfish.jpg"}
         ]
         
@@ -74,7 +74,8 @@ export default class Fish{
         let newX = this.pos[0] + this.vel[0];
         let newY = this.pos[1] + this.vel[1];
         // console.log(pond)
-        if(ctx.isPointInPath(pond, newX, newY)){
+        if(ctx.isPointInPath(pond, newX, newY) && ctx.isPointInPath(pond, (newX + 20),(newY + 10))
+         && ctx.isPointInPath(pond, (newX + 20),(newY)) && ctx.isPointInPath(pond, (newX),(newY + 10))){
             this.pos = [newX, newY]
         } else {  
             this.vel = Util.randomVec()

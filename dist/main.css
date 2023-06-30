@@ -5,3 +5,8 @@ canvas {
   display: flex;
   justify-content: end;
 }
+
+#main {
+  display: flex;
+  justify-content: center;
+}
