@@ -5,10 +5,10 @@ export default class Pond{
     static RADIUS = 200;
     constructor(ctx){
         this.fishes = [];
-        this.drawPond(ctx)
+        this.pondOutline = this.drawPond(ctx)
 
         this.fishes.push(new Fish());
-        
+
         setInterval(() => {
             let fish = new Fish();
             this.fishes.push(fish);
@@ -17,7 +17,7 @@ export default class Pond{
 
         setInterval(() => {
             this.fishes.forEach( fishy =>{
-                fishy.move();
+                fishy.move(ctx, this.pondOutline);
                 fishy.draw(ctx);
             })
         }, 50);
@@ -35,6 +35,7 @@ export default class Pond{
         pond.bezierCurveTo(100,200, 160, 245, 100, 300)
         pond.bezierCurveTo(100, 300, 40, 345, 50, 375)
         ctx.stroke(pond);
+        return pond;
         // pond.fillStyle() = "blue";
         // pond.fill();
         

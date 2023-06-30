@@ -55,15 +55,22 @@ export default class Fish{
         return [pos1,pos2]
     }
 
-    move(){
+    move(ctx, pond){
         if(this.timeToChangeDir === 0){
             this.vel = Util.randomVec();
             this.timeToChangeDir = (Math.floor(Math.random() * 15) + 5)
         } else {
             this.timeToChangeDir--;
         }
-
-
-        this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
+        let newX = this.pos[0] + this.vel[0];
+        let newY = this.pos[1] + this.vel[1];
+        console.log(pond)
+        if(ctx.isPointInPath(pond, newX, newY)){
+            this.pos = [newX, newY]
+        } else {  
+            this.vel = Util.randomVec()
+            // this.vel = [-1 * this.vel[0],-1 * this.vel[1]]
+            // this.pos = [this.pos[0] + this.vel[0], this.pos[0] + this.vel[0]];
+        }
     }
 }
