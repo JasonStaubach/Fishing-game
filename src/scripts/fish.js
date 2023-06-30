@@ -8,7 +8,8 @@ export default class Fish{
         this.score = makeFish.score;
         this.color = makeFish.color;
         this.pos = Fish.randomPosition();
-        //this.body = Fish.makeBody();
+        // this.vel = Fish.randomVelocity();
+        
     }
     
     fishGenerator(seedNum){
@@ -43,11 +44,12 @@ export default class Fish{
         ctx.bezierCurveTo(20 + this.pos[0], 0 + this.pos[1], 5 + this.pos[0],5 + this.pos[1], 0 + this.pos[0], 10 + this.pos[1])
         ctx.lineTo(0 + this.pos[0],0 + this.pos[1])
         ctx.stroke();
-        ctx.fill;
+        ctx.fill();
     }
     static randomPosition(){
-        let pos1 = Math.random() * 800;
-        let pos2 = Math.random() * 600;
+        //ctx.rect(150,200, 300, 265) spawning area
+        let pos1 = (Math.random() * 300) + 150;
+        let pos2 = (Math.random() * 265) + 200;
         return [pos1,pos2]
     }
 }

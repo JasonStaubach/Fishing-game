@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let game = new Game(ctx)
     let fish = new Fish()
     fish.draw(ctx);
+    ctx.beginPath();
+    ctx.rect(150,200, 300, 265);
+    ctx.stroke();
     // let fish = new Fish()
     // let pond = new Pond(ctx)
     // console.log(fish.name);
