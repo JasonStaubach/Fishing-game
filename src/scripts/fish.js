@@ -83,5 +83,8 @@ export default class Fish{
         }
     }
 
-    
+    catch(){
+        console.log(`Caught a ${this.name} and earned ${this.score} points!`);
+    }
+
 }
