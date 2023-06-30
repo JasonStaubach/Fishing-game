@@ -10,6 +10,7 @@ export default class Pond{
         this.pondOutline = this.drawPond(ctx)
         this.fishes.push(new Fish());
         this.score = new Score(ctx, this.score);
+        this.canClick = true;
 
         setInterval(() => {
             let count = 0
@@ -24,7 +25,7 @@ export default class Pond{
         setInterval(() => {
             ctx.clearRect(0,0,Game.PIX_X,Game.PIX_Y);
             this.drawPond(ctx);
-            if(this.score === undefined) debugger
+            this.clickable(ctx);
             this.score.drawScore(ctx)
             this.fishes.forEach( fishy =>{
                 fishy.move(ctx, this.pondOutline);
@@ -61,15 +62,28 @@ export default class Pond{
     checkClick(e){
     //    let cursorX = e.pageX
     //    let cursorY = e.pageY
-        const canvasEl = document.getElementById("game-canvas");
-        let cursorX = e.clientX - canvasEl.getBoundingClientRect().left
-        let cursorY = e.clientY - canvasEl.getBoundingClientRect().top
-       this.fishes.forEach( fish => {
-            if((cursorX >= fish.pos[0] && cursorX <= (fish.pos[0] + 20)) &&
-            (cursorY >= fish.pos[1] && cursorY <= (fish.pos[1] + 10))){
-                this.catch(fish);
-            }
-       });
+        if(this.canClick){
+            const canvasEl = document.getElementById("game-canvas");
+            let cursorX = e.clientX - canvasEl.getBoundingClientRect().left
+            let cursorY = e.clientY - canvasEl.getBoundingClientRect().top
+            this.fishes.forEach( fish => {
+                if((cursorX >= fish.pos[0] && cursorX <= (fish.pos[0] + 20)) &&
+                (cursorY >= fish.pos[1] && cursorY <= (fish.pos[1] + 10))){
+                    this.catch(fish);
+                }
+        });
+        }
+       this.canClick = false;
+       setTimeout(() => this.canClick = true, 1000)
+    }
+
+    clickable(ctx){
+        ctx.font = "36px Lucida Console";
+        if(this.canClick){
+            ctx.strokeText(`Click!`, 420, 50);
+        } else {
+            ctx.strokeText(`No click`, 400, 50);
+        }
     }
 
     catch(fish){
