@@ -13,13 +13,9 @@
     z-index: 0;
 
 }
-.background{
+#background{
     z-index: -1;
-    position: relative;
-    width: 3px;
-    height: 3px;
-    padding: 3px;
-
+    margin: 4px;
 }
 .minigame {
     z-index: 1;
