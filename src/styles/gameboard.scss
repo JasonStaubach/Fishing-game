@@ -1,9 +1,31 @@
-canvas {
+#game-container{
+    margin-top: 20px;
+}
+
+
+
+#game-canvas{
     display: flex;
     justify-content: end;
     border: 5px groove black;
     border-radius: 8px;
-    margin-top: 20px;
+    position: absolute;
+    z-index: 0;
+
+}
+.background{
+    display: flex;
+    z-index: -1;
+    position: relative;
+    width: 1100px;
+    height: 600px;
+
+}
+.minigame {
+    z-index: 1;
+    display: flex;
+    border: 5px groove black;
+    border-radius: 8px;
 }
 
 #main {

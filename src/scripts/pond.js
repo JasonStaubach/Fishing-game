@@ -40,11 +40,7 @@ export default class Pond{
     }
 
     drawPond(ctx){
-        // let background = new Image();
-        // background.src = "./src/images/pondbackground.jpg"
-        // background.onload = () => {
-        //     ctx.drawImage(background,0,0,1100,600);   
-        // }
+        
         let pond = new Path2D();
 
         pond.moveTo(50, 375);
@@ -108,6 +104,8 @@ export default class Pond{
     }
 
     timingMinigame(fish){
+        let minigame = document.createElement('canvas')
+        minigame.classList.add('minigame')
         for(let i = 0; i < fish.reels; i++){       
             let gradient = this.ctx.createLinearGradient(10, 90, 200, 90);
             gradient.addColorStop(0, 'green');

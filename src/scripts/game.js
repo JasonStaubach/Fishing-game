@@ -9,11 +9,22 @@ export default class Game{
         header.setAttribute("src", "src/images/thefishinhole.jpg")
         header.classList.add("the-fishin-hole-sign")
         document.getElementById("main").appendChild(header)
+        const background = document.createElement('canvas')
+        background.setAttribute('id','background')
+        document.getElementById("board-container").appendChild(background)
+        debugger
+        const backgroundCanvas = document.getElementById('background')
+        const bgctx = backgroundCanvas.getContext("2d");
+        let back = new Image();
+        back.src = "./src/images/pondbackground.jpg"
+        back.onload = () => {
+            bgctx.drawImage(back,0,0,1100,600);   
+        }
 
-        const music = this.makeHeaderButton("music","./src/images/music.jpg")      //make button row
-        const game_sound = this.makeHeaderButton("game_sound","./src/images/game_sound.jpg")
-        const linkedin = this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
-        const github = this.makeHeaderButton("github","src/images/github.jpg")
+        this.makeHeaderButton("music","./src/images/music.jpg")      //make button row
+        this.makeHeaderButton("game_sound","./src/images/game_sound.jpg")
+        this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
+        this.makeHeaderButton("github","src/images/github.jpg")
 
         this.pond = new Pond(ctx);
     }
