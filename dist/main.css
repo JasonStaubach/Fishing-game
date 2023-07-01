@@ -8,9 +8,14 @@ canvas {
 
 #main {
   display: flex;
-  justify-content: center;
+  margin-left: 350px;
 }
 
 body {
-  background-color: rgb(18, 161, 18);
+  background-color: #D4D4D5;
+}
+
+img {
+  width: 400px;
+  height: 300px;
 }

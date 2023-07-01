@@ -8,7 +8,7 @@ export default class Score{
     }
 
     drawScore(ctx){
-        ctx.font = "44px Lucida Console";
+        ctx.font = "44px Regular 400";
         ctx.strokeText(`Score: ${this.score}`, 120, 50);
 
         ctx.font = "36px Lucida Console"
