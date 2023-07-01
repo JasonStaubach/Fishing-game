@@ -8,6 +8,7 @@ export default class Game{
         const header = document.createElement('img')
         header.setAttribute("src", "src/images/thefishinhole.jpg")
         document.getElementById("main").appendChild(header);
+        
         this.pond = new Pond(ctx);
     }
 

@@ -17,27 +17,27 @@ export default class Fish{
     
     fishGenerator(){
         const FISHCLASS = [
-            {name: "Starfish", reels: 2, score: 150, color: "#eb34eb", img: "starfish.jpg"},
-            {name: "Juvenile Drum",reels: 1, score: 200, color: "#000000", img: "juvenile_drum.jpg"},
-            {name:"Lionfish",reels: 3, score: 200, color: "orange", img: "whatever.jpg"},
-            {name:"Clownfish",reels: 1, score: 100, color: "#orange", img: "dogfish.jpg"},
-            {name: "Queen Angelfish", reels: 3, score: 400, color: "#0075a3", img: "queenangelfish.jpg"},
-            {name: "Seahorse", reels: 2, score: 250, color: "yellow", img: "whatever.jpg"},
-            {name:"Shrimp", reels: 1, score: 75, color: "pink", img: "shrimp.png"},
-            {name:"Sea Turtle", reels: 3, score: 300, color: "green", img: "seaturtle.png"},
-            {name:"Pufferfish", reels: 2, score: 125, color: "yellow", img: "pufferfish.png"},
-            {name:"Beta Fish", reels: 1, score: 50, color: "green", img: "betafish.png"},
-            {name:"Jellyfish", reels: 1, score: 50, color: "pink", img: "jellyfish.png"},
-            {name:"Flounder", reels: 2, score: 200, color: "green", img: "flounder.png"},
-            {name: "Hermit Crab", reels: 1, score: 50, color: "red", img: "hermitcrab.png"},
-            {name: "Octopus", reels: 4, score: 500, color: "pink", img: "octopus.jpg"},
-            {name: "Ribbon Eel", reels: 3, score: 300, color: "lightblue", img: "ribboneel.jpg"},
-            {name: "Squid", reels:3, score: 350, color: "pink", img: "squid.jpg"},
-            {name: "Lobster", reels: 3, score: 250, color: "red", img: "lobster.jpg"},
-            {name: "Manta Ray", reels: 4, score: 450, color: "lightblue", img: "mantaray.jpg"},
-            {name: "Marlon", reels: 3, score: 400, color: "lightblue", img: "marlon.jpg"},
+            {name: "Starfish", reels: 2, score: 150, color: "#eb34eb", img: "starfish"},
+            {name: "Juvenile Drum",reels: 1, score: 200, color: "#000000", img: "juvenile_drum"},
+            {name:"Lionfish",reels: 3, score: 200, color: "orange", img: "whatever"},
+            {name:"Clownfish",reels: 1, score: 100, color: "#orange", img: "dogfish"},
+            {name: "Queen Angelfish", reels: 3, score: 400, color: "#0075a3", img: "queenangelfish"},
+            {name: "Seahorse", reels: 2, score: 250, color: "yellow", img: "whatever"},
+            {name:"Shrimp", reels: 1, score: 75, color: "pink", img: "shrimp"},
+            {name:"Sea Turtle", reels: 3, score: 300, color: "green", img: "seaturtle"},
+            {name:"Pufferfish", reels: 2, score: 125, color: "yellow", img: "pufferfish"},
+            {name:"Beta Fish", reels: 1, score: 50, color: "green", img: "betafish"},
+            {name:"Jellyfish", reels: 1, score: 50, color: "pink", img: "jellyfish"},
+            {name:"Flounder", reels: 2, score: 200, color: "green", img: "flounder"},
+            {name: "Hermit Crab", reels: 1, score: 50, color: "red", img: "hermitcrab"},
+            {name: "Octopus", reels: 4, score: 500, color: "pink", img: "octopus"},
+            {name: "Ribbon Eel", reels: 3, score: 300, color: "lightblue", img: "ribboneel"},
+            {name: "Squid", reels:3, score: 350, color: "pink", img: "squid"},
+            {name: "Lobster", reels: 3, score: 250, color: "red", img: "lobster"},
+            {name: "Manta Ray", reels: 4, score: 450, color: "lightblue", img: "mantaray"},
+            {name: "Marlon", reels: 3, score: 400, color: "lightblue", img: "marlon"},
             {name: "Tarpon", reels: 4, score: 500, color: "silver", img: "tarpon.jpg"},
-            {name: "Blue Tang", reels: 2, score: 200, color:"blue", img: "bluetang.jpg"}
+            {name: "Blue Tang", reels: 2, score: 200, color:"blue", img: "blue-tang.jpg"}
 
         ]
         

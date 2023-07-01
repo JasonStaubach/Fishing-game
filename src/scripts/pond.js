@@ -39,6 +39,11 @@ export default class Pond{
     }
 
     drawPond(ctx){
+        // let background = new Image();
+        // background.src = "./src/images/pondbackground.jpg"
+        // background.onload = () => {
+        //     ctx.drawImage(background,0,0,1100,600);   
+        // }
         let pond = new Path2D();
 
         pond.moveTo(50, 375);
