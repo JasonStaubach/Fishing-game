@@ -15,11 +15,11 @@
 }
 
 .background {
-  display: flex;
   z-index: -1;
   position: relative;
-  width: 1100px;
-  height: 600px;
+  width: 3px;
+  height: 3px;
+  padding: 3px;
 }
 
 .minigame {

@@ -2,18 +2,21 @@ import Pond from "./pond"
 import Score from "./score"
 export default class Game{
     static PIX_X = 1100;
-    static PIX_Y = 600
+    static PIX_Y = 600;
     ;
     constructor(ctx){
         const header = document.createElement('img')                //add header image
         header.setAttribute("src", "src/images/thefishinhole.jpg")
         header.classList.add("the-fishin-hole-sign")
         document.getElementById("main").appendChild(header)
-        const background = document.createElement('canvas')
+
+        const background = document.createElement('canvas')         //create background canvas
         background.setAttribute('id','background')
+        background.setAttribute('width', `1100`)
+        background.setAttribute('height', Game.PIX_Y)
         document.getElementById("board-container").appendChild(background)
-        debugger
-        const backgroundCanvas = document.getElementById('background')
+
+        const backgroundCanvas = document.getElementById('background')     //print background on background canvas
         const bgctx = backgroundCanvas.getContext("2d");
         let back = new Image();
         back.src = "./src/images/pondbackground.jpg"
