@@ -4,7 +4,7 @@
 canvas {
   display: flex;
   justify-content: end;
-  border: 5px solid black;
+  border: 5px groove black;
   border-radius: 8px;
   margin-top: 20px;
 }
@@ -12,7 +12,7 @@ canvas {
 #main {
   display: flex;
   margin-left: 340px;
-  border: 5px solid black;
+  border: 5px groove black;
   border-radius: 8px;
   width: 400px;
 }
@@ -21,7 +21,17 @@ body {
   background-color: #D4D4D5;
 }
 
-img {
+.the-fishin-hole-sign {
   width: 400px;
   height: 240px;
+}
+
+div > button {
+  margin: 10px;
+  margin-left: 170px;
+  width: 50px;
+  height: 20px;
+  background-color: lightblue;
+  border: 5px groove black;
+  border-radius: 8px;
 }
