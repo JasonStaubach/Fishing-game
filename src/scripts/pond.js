@@ -11,6 +11,7 @@ export default class Pond{
         this.fishes.push(new Fish());
         this.score = new Score(ctx, this.score);
         this.canClick = true;
+        this.ctx = ctx;
 
         setInterval(() => {
             let count = 0
@@ -58,9 +59,9 @@ export default class Pond{
         return pond;
     }
 
-    draw(ctx){
+    draw(){
         this.fish.forEach( fishy => {
-            fishy.draw(ctx)
+            fishy.draw(this.ctx)
         });
     }
 
@@ -92,13 +93,28 @@ export default class Pond{
     }
 
     catch(fish){
-        this.score.addScore(fish.score);
-        // debugger
-        this.score.topThree(fish)               //if necissary, adds fish to top 3 fish caught
-        this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
-        console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
-        // console.log(fishArr.indexOf(this))
+        let caught = this.timingMinigame(fish)
+
+        if(caught){
+            this.score.addScore(fish.score);
+            // debugger
+            this.score.topThree(fish)               //if necissary, adds fish to top 3 fish caught
+            this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
+            console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
+            // console.log(fishArr.indexOf(this))
+        } else {
+            console.log(`${fish.name} got away!`)
+        }
     }
 
-    
+    timingMinigame(fish){
+        for(let i = 0; i < fish.reels; i++){       
+            let gradient = this.ctx.createLinearGradient(10, 90, 200, 90);
+            gradient.addColorStop(0, 'green');
+            gradient.addColorStop(1, 'white');
+            this.ctx.fillStyle = gradient;
+            this.ctx.fillRect(10, 10, 200, 250);
+        }
+        return true;
+    }
 }
