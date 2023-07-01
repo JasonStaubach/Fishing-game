@@ -17,27 +17,27 @@ export default class Fish{
     
     fishGenerator(){
         const FISHCLASS = [
-            {name: "Starfish", reels: 2, score: 150, color: "#eb34eb", img: "starfish.jpg"},
-            {name: "Juvenile Drum",reels: 1, score: 200, color: "#000000", img: "juvenile-drum.jpg"},
-            {name:"Lionfish",reels: 3, score: 200, color: "orange", img: "lionfish.jpg"},
-            {name:"Clownfish",reels: 1, score: 100, color: "#orange", img: "clownfish.jpg"},
-            {name: "Queen Angelfish", reels: 3, score: 400, color: "#0075a3", img: "queen-angelfish.jpg"},
-            {name: "Seahorse", reels: 2, score: 250, color: "yellow", img: "seahorse.jpg"},
-            {name:"Shrimp", reels: 1, score: 75, color: "pink", img: "shrimp.jpg"},
-            {name:"Sea Turtle", reels: 3, score: 300, color: "green", img: "sea-turtle.jpg"},
-            {name:"Pufferfish", reels: 2, score: 125, color: "yellow", img: "pufferfish.jpg"},
-            {name:"Beta Fish", reels: 1, score: 50, color: "green", img: "betafish.jpg"},
-            {name:"Jellyfish", reels: 1, score: 50, color: "pink", img: "jellyfish.jpg"},
-            {name:"Flounder", reels: 2, score: 200, color: "green", img: "flounder.jpg"},
-            {name: "Hermit Crab", reels: 1, score: 50, color: "red", img: "hermit-crab.jpg"},
-            {name: "Octopus", reels: 4, score: 500, color: "pink", img: "octopus.jpg"},
-            {name: "Ribbon Eel", reels: 3, score: 300, color: "lightblue", img: "ribbon-eel.jpg"},
-            {name: "Squid", reels:3, score: 350, color: "pink", img: "squid.jpg"},
-            {name: "Lobster", reels: 3, score: 250, color: "red", img: "lobster.jpg"},
-            {name: "Manta Ray", reels: 4, score: 450, color: "lightblue", img: "manta-ray.jpg"},
-            {name: "Marlon", reels: 3, score: 400, color: "lightblue", img: "marlon.jpg"},
-            {name: "Tarpon", reels: 4, score: 500, color: "silver", img: "tarpon.jpg"},
-            {name: "Blue Tang", reels: 2, score: 200, color:"blue", img: "blue-tang.jpg"}
+            {name: "Starfish", reels: 2, score: 150, color: "#eb34eb", img: "./src/images/starfish.jpg"},
+            {name: "Juvenile Drum",reels: 1, score: 200, color: "#000000", img: "./src/images/juvenile-drum.jpg"},
+            {name:"Lionfish",reels: 3, score: 200, color: "orange", img: "./src/images/lionfish.jpg"},
+            {name:"Clownfish",reels: 1, score: 100, color: "#orange", img: "./src/images/clownfish.jpg"},
+            {name: "Queen Angelfish", reels: 3, score: 400, color: "#0075a3", img: "./src/images/queen-angelfish.jpg"},
+            {name: "Seahorse", reels: 2, score: 250, color: "yellow", img: "./src/images/seahorse.jpg"},
+            {name:"Shrimp", reels: 1, score: 75, color: "pink", img: "./src/images/shrimp.jpg"},
+            {name:"Sea Turtle", reels: 3, score: 300, color: "green", img: "./src/images/sea-turtle.jpg"},
+            {name:"Pufferfish", reels: 2, score: 125, color: "yellow", img: "./src/images/pufferfish.jpg"},
+            {name:"Beta Fish", reels: 1, score: 50, color: "green", img: "./src/images/betafish.jpg"},
+            {name:"Jellyfish", reels: 1, score: 50, color: "pink", img: "./src/images/jellyfish.jpg"},
+            {name:"Flounder", reels: 2, score: 200, color: "green", img: "./src/images/flounder.jpg"},
+            {name: "Hermit Crab", reels: 1, score: 50, color: "red", img: "./src/images/hermit-crab.jpg"},
+            {name: "Octopus", reels: 4, score: 500, color: "pink", img: "./src/images/octopus.jpg"},
+            {name: "Ribbon Eel", reels: 3, score: 300, color: "lightblue", img: "./src/images/ribbon-eel.jpg"},
+            {name: "Squid", reels:3, score: 350, color: "pink", img: "./src/images/squid.jpg"},
+            {name: "Lobster", reels: 3, score: 250, color: "red", img: "./src/images/lobster.jpg"},
+            {name: "Manta Ray", reels: 4, score: 450, color: "lightblue", img: "./src/images/manta-ray.jpg"},
+            {name: "Marlon", reels: 3, score: 400, color: "lightblue", img: "./src/images/marlon.jpg"},
+            {name: "Tarpon", reels: 4, score: 500, color: "silver", img: "./src/images/tarpon.jpg"},
+            {name: "Blue Tang", reels: 2, score: 200, color:"blue", img: "./src/images/blue-tang.jpg"}
 
         ]
         
