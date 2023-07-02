@@ -2,7 +2,7 @@ import Pond from "./pond"
 import Score from "./score"
 export default class Game{
     static PIX_X = 1100;
-    static PIX_Y = 600
+    static PIX_Y = 600;
     ;
     constructor(ctx){
         const header = document.createElement('img')                //add header image
@@ -10,10 +10,24 @@ export default class Game{
         header.classList.add("the-fishin-hole-sign")
         document.getElementById("main").appendChild(header)
 
-        const music = this.makeHeaderButton("music","./src/images/music.jpg")      //make button row
-        const game_sound = this.makeHeaderButton("game_sound","./src/images/game_sound.jpg")
-        const linkedin = this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
-        const github = this.makeHeaderButton("github","src/images/github.jpg")
+        const background = document.createElement('canvas')         //create background canvas
+        background.setAttribute('id','background')
+        background.setAttribute('width', `1100`)
+        background.setAttribute('height', Game.PIX_Y)
+        document.getElementById("board-container").appendChild(background)
+
+        const backgroundCanvas = document.getElementById('background')     //print background on background canvas
+        const bgctx = backgroundCanvas.getContext("2d");
+        let back = new Image();
+        back.src = "./src/images/pondbackground.jpg"
+        back.onload = () => {
+            bgctx.drawImage(back,0,0,1100,600);   
+        }
+
+        this.makeHeaderButton("music","./src/images/music.jpg")      //make button row
+        this.makeHeaderButton("game_sound","./src/images/game_sound.jpg")
+        this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
+        this.makeHeaderButton("github","src/images/github.jpg")
 
         this.pond = new Pond(ctx);
     }

@@ -1,12 +1,29 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-canvas {
+#game-container {
+  margin-top: 20px;
+}
+
+#game-canvas {
   display: flex;
   justify-content: end;
   border: 5px groove black;
   border-radius: 8px;
-  margin-top: 20px;
+  position: absolute;
+  z-index: 0;
+}
+
+#background {
+  z-index: -1;
+  margin: 4px;
+}
+
+.minigame {
+  z-index: 1;
+  display: flex;
+  border: 5px groove black;
+  border-radius: 8px;
 }
 
 #main {
