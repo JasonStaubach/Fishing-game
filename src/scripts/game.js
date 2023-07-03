@@ -1,5 +1,6 @@
 import Pond from "./pond"
 import Score from "./score"
+import Background from "./background";
 export default class Game{
     static PIX_X = 1100;
     static PIX_Y = 600;
@@ -10,26 +11,14 @@ export default class Game{
         header.classList.add("the-fishin-hole-sign")
         document.getElementById("main").appendChild(header)
 
-        const background = document.createElement('canvas')         //create background canvas
-        background.setAttribute('id','background')
-        background.setAttribute('width', Game.PIX_X)
-        background.setAttribute('height', Game.PIX_Y)
-        document.getElementById("board-container").appendChild(background)
-
-        const backgroundCanvas = document.getElementById('background')     //print background on background canvas
-        const bgctx = backgroundCanvas.getContext("2d");
-        let back = new Image();
-        back.src = "./src/images/pondbackground.jpg"
-        back.onload = () => {
-            bgctx.drawImage(back,0,0,1100,600);   
-        }
+        const background = new Background();
 
         this.makeHeaderButton("music","./src/images/sound-on.jpg")      //make button row
         this.makeHeaderButton("game_sound","./src/images/sound-on.jpg")
         this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
         this.makeHeaderButton("github","src/images/github.jpg")
 
-        this.pond = new Pond(ctx);
+        this.pond = new Pond(background, ctx);
     }
 
 

@@ -1,10 +1,10 @@
-import Pond from "./pond"
-import Game from "./game"
+import Background from "./background";
 export default class Score{
-    constructor(ctx){
+    constructor(gameBackground, ctx){
         this.score = 0
         this.rareThree = []
         this.drawScore(ctx)
+        this.background = gameBackground
     }
 
     drawScore(ctx){
@@ -27,7 +27,6 @@ export default class Score{
     }
 
     addScore(num){
-        console.log(this.score)
         this.score += num;
     }
 
@@ -55,6 +54,8 @@ export default class Score{
                 this.rareThree.push(fish)
             }
         }
+        // debugger
+        this.background.drawTopThree(this.rareThree)
         console.log(this.rareThree)
         return this.rareThree
     }
