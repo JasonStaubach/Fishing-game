@@ -106,7 +106,7 @@ export default class Pond{
     timingMinigame(fish){
         let minigame = document.createElement('canvas')
         minigame.classList.add('minigame')
-        minigame.addAttribute('id','minigame-canvas')
+        minigame.setAttribute('id','minigame-canvas')
 
         const minigameCanvas = document.getElementById('minigame-canvas')     //print background on background canvas
         const mgctx = minigameCanvas.getContext("2d");
