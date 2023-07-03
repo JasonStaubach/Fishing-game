@@ -23,11 +23,12 @@ export default class Background{
             console.log(bigFishArr[i])
             if(bigFishArr[i] != undefined){  
                 let fish = new Image();
-                fish.src = bigFishArr[i].imagesrc;
+                let name = `./src/images/${bigFishArr[i].name.replace(/\s+/g, '').toLowerCase()}.jpg`
+                fish.src = name;
                 console.log(fish.src)
                 fish.onload = () => {
                     debugger
-                    this.bgctx.drawImage(fish, 200, (200 + i * 100), 200, (300 + i * 100))
+                    this.bgctx.drawImage(fish, 800, (120 + i * 100), 120, 50)
                 }
             } else {
                 return

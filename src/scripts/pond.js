@@ -75,6 +75,7 @@ export default class Pond{
             this.fishes.forEach( fish => {
                 if((cursorX >= fish.pos[0] && cursorX <= (fish.pos[0] + 20)) &&
                 (cursorY >= fish.pos[1] && cursorY <= (fish.pos[1] + 10))){
+                    // console.log(fish.imagesrc)
                     this.catch(fish);
                 }
         });
