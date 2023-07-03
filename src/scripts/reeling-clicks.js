@@ -3,6 +3,7 @@ export function timingMinigame(fish){
     minigame.classList.add('minigame')
     minigame.setAttribute('id','minigame-canvas')
     document.getElementById("board-container").appendChild(minigame)
+    minigame.setAttribute('top', `${(-1100 + fish.pos[0])}px`)
 
 
     const minigameCanvas = document.getElementById('minigame-canvas')     //print background on background canvas
@@ -11,10 +12,10 @@ export function timingMinigame(fish){
     debugger
 
     for(let i = 0; i < fish.reels; i++){       
-        let gradient = mgctx.createRadialGradient(10, 90, 10, 10, 90, 90);      //(x, y, innerRadius, x, y, outerRadius)
+        let gradient = mgctx.createRadialGradient(50, 50, 10, 50, 50, 90);      //(x, y, innerRadius, x, y, outerRadius)
         gradient.addColorStop(0, 'green');
         gradient.addColorStop(1, 'white');
-        mgctx.arc(400,400, 200, 0, 2 * Math.PI)          //(x, y, radius, start, end);
+        mgctx.arc(100,100, 50, 0, 2 * Math.PI)          //(x, y, radius, start, end);
         mgctx.fillStyle = gradient;
         mgctx.fill();
     }

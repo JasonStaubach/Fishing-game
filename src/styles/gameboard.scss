@@ -18,7 +18,8 @@
     margin: 4px;
 }
 #minigame-canvas {
-    z-index: 1;
+    position: relative;
+    z-index: 5;
     width: 400px;
     height: 400px;
 }
