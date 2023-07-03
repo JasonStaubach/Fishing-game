@@ -16,6 +16,8 @@ export default class Background{
         back.onload = () => {
             this.bgctx.drawImage(back,0,0,1100,600);   
         }
+
+        this.score = new Score(background, this.bgctx);
     }
 
     drawTopThree(bigFishArr){

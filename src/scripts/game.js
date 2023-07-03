@@ -18,7 +18,7 @@ export default class Game{
         this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
         this.makeHeaderButton("github","src/images/github.jpg")
 
-        this.pond = new Pond(background, ctx);
+        this.pond = new Pond(ctx);
     }
 
 
