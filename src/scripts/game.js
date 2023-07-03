@@ -1,6 +1,8 @@
 import Pond from "./pond"
 import Score from "./score"
 import Background from "./background";
+import { makeMinigameCanvas } from "./reeling-clicks";
+
 export default class Game{
     static PIX_X = 1100;
     static PIX_Y = 600;
@@ -11,14 +13,25 @@ export default class Game{
         header.classList.add("the-fishin-hole-sign")
         document.getElementById("main").appendChild(header)
 
-        const background = new Background();
+        this.background = new Background();
+        this.score = 0;
 
         this.makeHeaderButton("music","./src/images/sound-on.jpg")      //make button row
         this.makeHeaderButton("game_sound","./src/images/sound-on.jpg")
         this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
         this.makeHeaderButton("github","src/images/github.jpg")
 
-        this.pond = new Pond(ctx);
+        
+        setTimeout(() => {              //timeout is so that the background can load before score added to it
+            this.score = new Score(this.background)
+            this.pond = new Pond(ctx, this.score, this.background);
+            this.background.getScore(this.score)
+        }, 100);
+        makeMinigameCanvas();
+    }
+
+    score(){
+        return this.score
     }
 
 

@@ -1,22 +1,9 @@
 export function timingMinigame(fish){
-    let minigame = document.createElement('canvas')     //creating minigame canvas, and attaching it to board div
-    minigame.classList.add('minigame')
-    minigame.setAttribute('id','minigame-canvas')
-    minigame.setAttribute('z-index','1')
-    minigame.setAttribute('width', '200px')
-    minigame.setAttribute('height', '200px')
-    minigame.setAttribute('position', 'absolute')
-    minigame.setAttribute('top', `${(-1100 + fish.pos[0])}px`)
-    minigame.setAttribute('left', `-${(fish.pos[1])}px`)
-    document.getElementById("board-container").appendChild(minigame)
-
-    // minigame.position = 'relative'
-    // minigame.top = '-600px'  //`${(-1100 + fish.pos[0])}px`)
-    // minigame.left = `${(fish.pos[1])}px`
-
-
-    const minigameCanvas = document.getElementById('minigame-canvas')     //print background on background canvas
-    const mgctx = minigameCanvas.getContext("2d");
+    const minigame = document.getElementById('minigame-canvas')     //print background on background canvas
+    minigame.setAttribute('top', `${(fish.pos[0])}px`)
+    minigame.setAttribute('left',`${(fish.pos[1])}px`)
+    minigame.setAttribute('display', 'block')
+    const mgctx = minigame.getContext("2d");
 
     for(let i = 0; i < fish.reels; i++){       
         let gradient = mgctx.createRadialGradient(100, 100, 10, 100, 100, 90);      //(x, y, innerRadius, x, y, outerRadius)
@@ -29,3 +16,21 @@ export function timingMinigame(fish){
     }
     return true;
 }
+
+export function makeMinigameCanvas(){
+    let minigame = document.createElement('canvas')     //creating minigame canvas, and attaching it to board div
+    minigame.classList.add('minigame')
+    minigame.setAttribute('id','minigame-canvas')
+    minigame.setAttribute('z-index','1')
+    minigame.setAttribute('width', '200px')
+    minigame.setAttribute('height', '200px')
+    minigame.setAttribute('position', 'absolute')
+    minigame.setAttribute('display', 'none')
+    document.getElementById("board-container").appendChild(minigame)
+}
+    // minigame.position = 'relative'
+    // minigame.top = '-600px'  //`${(-1100 + fish.pos[0])}px`)
+    // minigame.left = `${(fish.pos[1])}px`
+
+
+    

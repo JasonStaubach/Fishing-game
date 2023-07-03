@@ -6,8 +6,11 @@ import { timingMinigame } from "./reeling-clicks";
 export default class Pond{
     static COLOR = "lightblue"
     static RADIUS = 200;
-    constructor(ctx){
+    constructor(ctx, score, background){
         this.fishes = [];
+        this.score = score
+        this.background = this.background
+
         this.pondOutline = this.drawPond(ctx)
         for(let i = 0; i < 3; i++){
             this.fishes.push(new Fish());
@@ -29,7 +32,7 @@ export default class Pond{
             ctx.clearRect(0,0,Game.PIX_X,Game.PIX_Y);
             this.drawPond(ctx);
             this.clickable(ctx);
-            this.score.drawScore(ctx)
+    
             this.fishes.forEach( fishy =>{
                 fishy.move(ctx, this.pondOutline);
                 fishy.draw(ctx);
@@ -66,6 +69,7 @@ export default class Pond{
     checkClick(e){
     //    let cursorX = e.pageX
     //    let cursorY = e.pageY
+    
         if(this.canClick){
             const canvasEl = document.getElementById("game-canvas");
             let cursorX = e.clientX - canvasEl.getBoundingClientRect().left
@@ -100,6 +104,7 @@ export default class Pond{
             this.score.addScore(fish.score);
             // debugger
             this.score.topThree(fish)               //if necissary, adds fish to top 3 fish caught
+            this.score.drawScore()
             this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
             console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
             // console.log(fishArr.indexOf(this))

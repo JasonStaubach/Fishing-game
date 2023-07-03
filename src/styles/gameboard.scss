@@ -1,8 +1,8 @@
-#game-container{
-    margin-top: 20px;
-    position: absolute;
-    width: 1100px;
-    height: 600px;
+#board-container{
+    // margin-top: 20px;
+    position: relative;
+    // width: 1100px;
+    // height: 600px;
     z-index: -5;
 }
 
@@ -13,19 +13,21 @@
     justify-content: end;
     border: 5px groove black;
     border-radius: 8px;
-    position: relative;
+    position: absolute;
     z-index: 0;
 
 }
 #background{
     z-index: -1;
     margin: 4px;
-    position: relative;
-    top: -610px;
-    left: 1px;
+    position: absolute;
 }
 #minigame-canvas {
     z-index: 5;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    // border: 1px solid red;
 }
 
 #main {

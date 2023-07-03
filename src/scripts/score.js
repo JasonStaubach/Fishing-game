@@ -1,31 +1,32 @@
 import Background from "./background";
 export default class Score{
-    constructor(gameBackground, ctx){
+    constructor(background){
         this.score = 0
         this.rareThree = []
-        this.drawScore(ctx)
-        this.background = gameBackground
+        this.background = background
+        const holdBackground = document.getElementById('background')  
+        this.ctx = holdBackground.getContext("2d");
+        this.drawScore(this.ctx)
     }
 
-    drawScore(ctx){
-        ctx.font = "44px Regular 400";
-        ctx.strokeText(`Score: ${this.score}`, 120, 50);
-
-        ctx.font = "36px Lucida Console"
-        ctx.strokeText('Top 3 Rarest Fish', 600, 50)
-
+    drawScore(){
+        this.ctx.fillStyle = "black"
         if(this.rareThree.length){
-            ctx.font = "30px Lucida Console"
-            ctx.strokeText(`${this.rareThree[0].name}`.padEnd(16, " ") +  `Score: ${this.rareThree[0].score}`, 600, 100)
+            this.ctx.font = "20px Lucida Console"
+            this.ctx.fillText(`${this.rareThree[0].name}`.padEnd(16, " ") +  `Score: ${this.rareThree[0].score}`, 760, 30)
             if(this.rareThree.length > 1){
-                ctx.strokeText(`${this.rareThree[1].name}`.padEnd(16, " ") +  `Score: ${this.rareThree[1].score}`, 600, 200)
+                this.ctx.fillText(`${this.rareThree[1].name}`.padEnd(16, " ") +  `Score: ${this.rareThree[1].score}`, 760, 230)
                 if(this,this.rareThree.length > 2){
-                    ctx.strokeText(`${this.rareThree[2].name}`.padEnd(16, " ") +  `Score: ${this.rareThree[2].score}`, 600, 300)
+                    this.ctx.fillText(`${this.rareThree[2].name}`.padEnd(16, " ") +  `Score: ${this.rareThree[2].score}`, 760, 430)
                 }
             }
         } 
     }
 
+    score(){
+        return this.score
+    }
+        
     addScore(num){
         this.score += num;
     }
@@ -55,6 +56,7 @@ export default class Score{
             }
         }
         // debugger
+        console.log(this.background)
         this.background.drawTopThree(this.rareThree)
         console.log(this.rareThree)
         return this.rareThree
