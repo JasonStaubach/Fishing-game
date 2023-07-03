@@ -106,12 +106,17 @@ export default class Pond{
     timingMinigame(fish){
         let minigame = document.createElement('canvas')
         minigame.classList.add('minigame')
+        minigame.addAttribute('id','minigame-canvas')
+
+        const minigameCanvas = document.getElementById('minigame-canvas')     //print background on background canvas
+        const mgctx = minigameCanvas.getContext("2d");
+
         for(let i = 0; i < fish.reels; i++){       
-            let gradient = this.ctx.createLinearGradient(10, 90, 200, 90);
+            let gradient = mgctx.createLinearGradient(10, 90, 200, 90);
             gradient.addColorStop(0, 'green');
             gradient.addColorStop(1, 'white');
-            this.ctx.fillStyle = gradient;
-            this.ctx.fillRect(10, 10, 200, 250);
+            mgctx.fillStyle = gradient;
+            mgctx.fillRect(10, 10, 200, 250);
         }
         return true;
     }

@@ -24,8 +24,8 @@ export default class Game{
             bgctx.drawImage(back,0,0,1100,600);   
         }
 
-        this.makeHeaderButton("music","./src/images/music.jpg")      //make button row
-        this.makeHeaderButton("game_sound","./src/images/game_sound.jpg")
+        this.makeHeaderButton("music","./src/images/sound-on.jpg")      //make button row
+        this.makeHeaderButton("game_sound","./src/images/sound-on.jpg")
         this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
         this.makeHeaderButton("github","src/images/github.jpg")
 
