@@ -1,6 +1,7 @@
 import Fish from "./fish";
 import Game from "./game";
 import Score from "./score"
+import { timingMinigame } from "./reeling-clicks";
 
 export default class Pond{
     static COLOR = "lightblue"
@@ -8,7 +9,9 @@ export default class Pond{
     constructor(ctx){
         this.fishes = [];
         this.pondOutline = this.drawPond(ctx)
-        this.fishes.push(new Fish());
+        for(let i = 0; i < 3; i++){
+            this.fishes.push(new Fish());
+        }
         this.score = new Score(ctx, this.score);
         this.canClick = true;
         this.ctx = ctx;
@@ -77,7 +80,7 @@ export default class Pond{
         }
         if(this.canClick === true){
             this.canClick = false;
-            setTimeout(() => this.canClick = true, 3000)
+            setTimeout(() => this.canClick = true, 300) //set back to 3000 when not debugging
         }
     }
 
@@ -91,7 +94,7 @@ export default class Pond{
     }
 
     catch(fish){
-        let caught = this.timingMinigame(fish)
+        let caught = timingMinigame(fish)
 
         if(caught){
             this.score.addScore(fish.score);
@@ -105,26 +108,4 @@ export default class Pond{
         }
     }
 
-    timingMinigame(fish){
-        let minigame = document.createElement('canvas')     //creating minigame canvas, and attaching it to board div
-        minigame.classList.add('minigame')
-        minigame.setAttribute('id','minigame-canvas')
-        document.getElementById("board-container").appendChild(minigame)
-
-
-        const minigameCanvas = document.getElementById('minigame-canvas')     //print background on background canvas
-        const mgctx = minigameCanvas.getContext("2d");
-
-        debugger
-
-        for(let i = 0; i < fish.reels; i++){       
-            let gradient = mgctx.createRadialGradient(10, 90, 200, 90);
-            gradient.addColorStop(0, 'green');
-            gradient.addColorStop(1, 'white');
-            mgctx.arc(100,100, 0, 2 * Math.PI)
-            mgctx.fillStyle = gradient;
-            mgctx.fill();
-        }
-        return true;
-    }
 }

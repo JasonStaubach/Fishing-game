@@ -42,7 +42,7 @@ export default class Fish{
         ]
         
         let seedNum = Math.random()*1000;
-        // console.log(seedNum)
+        console.log(seedNum)
         let fish = null;
     
 
@@ -69,7 +69,7 @@ export default class Fish{
             } else if (seedNum < 490){  //jellyfish 450 - 490
                 fish = FISHCLASS[10]
             } else if (seedNum < 530){  //flounder 490 - 530
-                fish - FISHCLASS[11]
+                fish = FISHCLASS[11]
             } else if (seedNum < 600){  //hermit crab 530 - 600  !!!!good to reduce if want more fish
                 fish = FISHCLASS[12]
             } else if (seedNum < 610){  //octopus 600 - 610
