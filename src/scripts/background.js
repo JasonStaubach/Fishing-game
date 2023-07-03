@@ -29,7 +29,6 @@ export default class Background{
 
         
         for(let i = 0; i < 3; i++){
-            console.log(bigFishArr[i])
             if(bigFishArr[i] != undefined){  
                 this.bgctx.beginPath()
                 this.bgctx.roundRect(765, 45 + i * 200, 300, 150, 15)
@@ -41,7 +40,7 @@ export default class Background{
                 let fish = new Image();
                 let name = `./src/images/${bigFishArr[i].name.replace(/\s+/g, '').toLowerCase()}.jpg`
                 fish.src = name;
-                console.log(fish.src)
+            
                 fish.onload = () => {
                     this.bgctx.drawImage(fish, 790, (65 + i * 200), 250, 105)
                 }
@@ -49,10 +48,10 @@ export default class Background{
                 return
             }
         }
-        }, 20);
+        }, 14);
         setTimeout(() => {
             this.score.drawScore()
-        }, 10);
+        }, 14);
     }
 
     drawBackground(){

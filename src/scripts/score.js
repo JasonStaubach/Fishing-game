@@ -11,6 +11,7 @@ export default class Score{
 
     drawScore(){
         this.ctx.fillStyle = "black"
+        
         if(this.rareThree.length){
             this.ctx.font = "20px Lucida Console"
             this.ctx.fillText(`${this.rareThree[0].name}`.padEnd(16, " ") +  `Score: ${this.rareThree[0].score}`, 760, 30)

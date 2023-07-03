@@ -9,7 +9,7 @@ export default class Pond{
     constructor(ctx, score, background){
         this.fishes = [];
         this.score = score
-        this.background = this.background
+        this.background = background
 
         this.pondOutline = this.drawPond(ctx)
         for(let i = 0; i < 3; i++){
@@ -103,7 +103,7 @@ export default class Pond{
         if(caught){
             this.score.addScore(fish.score);
             // debugger
-            this.score.topThree(fish)               //if necissary, adds fish to top 3 fish caught
+            this.background.drawTopThree(this.score.topThree(fish))               //if necissary, adds fish to top 3 fish caught
             this.score.drawScore()
             this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
             console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);

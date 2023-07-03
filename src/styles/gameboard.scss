@@ -1,9 +1,9 @@
 #board-container{
     // margin-top: 20px;
     position: relative;
-    // width: 1100px;
-    // height: 600px;
-    z-index: -5;
+    width: 1100px;
+    height: 600px;
+    // z-index: -5;
 }
 
 
@@ -25,8 +25,6 @@
 #minigame-canvas {
     z-index: 5;
     position: absolute;
-    bottom: 0;
-    right: 0;
     // border: 1px solid red;
 }
 
@@ -39,7 +37,7 @@
 }
 
 body {
-    background-color: #D4D4D5;
+    background-color: #E6D4B8;
 }
 
 .the-fishin-hole-sign{
