@@ -12,7 +12,7 @@ export default class Game{
 
         const background = document.createElement('canvas')         //create background canvas
         background.setAttribute('id','background')
-        background.setAttribute('width', `1100`)
+        background.setAttribute('width', Game.PIX_X)
         background.setAttribute('height', Game.PIX_Y)
         document.getElementById("board-container").appendChild(background)
 

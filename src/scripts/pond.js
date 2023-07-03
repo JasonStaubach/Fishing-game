@@ -75,8 +75,10 @@ export default class Pond{
                 }
         });
         }
-       this.canClick = false;
-       setTimeout(() => this.canClick = true, 3000)
+        if(this.canClick === true){
+            this.canClick = false;
+            setTimeout(() => this.canClick = true, 3000)
+        }
     }
 
     clickable(ctx){
@@ -104,19 +106,24 @@ export default class Pond{
     }
 
     timingMinigame(fish){
-        let minigame = document.createElement('canvas')
+        let minigame = document.createElement('canvas')     //creating minigame canvas, and attaching it to board div
         minigame.classList.add('minigame')
         minigame.setAttribute('id','minigame-canvas')
+        document.getElementById("board-container").appendChild(minigame)
+
 
         const minigameCanvas = document.getElementById('minigame-canvas')     //print background on background canvas
         const mgctx = minigameCanvas.getContext("2d");
 
+        debugger
+
         for(let i = 0; i < fish.reels; i++){       
-            let gradient = mgctx.createLinearGradient(10, 90, 200, 90);
+            let gradient = mgctx.createRadialGradient(10, 90, 200, 90);
             gradient.addColorStop(0, 'green');
             gradient.addColorStop(1, 'white');
+            mgctx.arc(100,100, 0, 2 * Math.PI)
             mgctx.fillStyle = gradient;
-            mgctx.fillRect(10, 10, 200, 250);
+            mgctx.fill();
         }
         return true;
     }

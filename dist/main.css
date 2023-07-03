@@ -21,9 +21,6 @@
 
 #minigame-canvas {
   z-index: 1;
-  display: flex;
-  border: 5px groove black;
-  border-radius: 8px;
 }
 
 #main {
