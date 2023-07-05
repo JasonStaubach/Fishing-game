@@ -20,6 +20,7 @@ export default class Minigame{
        console.log(minigame)
        const mgctx = minigame.getContext("2d");
        let growing = false;
+       this.sumArr = this.curriedSumArr(fish);
    
        this.clickTiming = this.clickTiming.bind(this)
        document.getElementById("minigame-canvas").addEventListener("click", this.clickTiming)
@@ -59,21 +60,27 @@ export default class Minigame{
        let cursorX = e.clientX - canvasEl.getBoundingClientRect().left
        let cursorY = e.clientY - canvasEl.getBoundingClientRect().top
        if(cursorX > 0 && cursorX < 200 && cursorY > 0 && cursorY < 200){
-           console.log(this.sumArr)
-           return function curry(){
-               this.sumArr.push(this.timingCircleSize)
-               console.log(this.sumArr)
-               if(this.sumArr.length === fish.reels){
-                   return this.sumArr.sum()
-               } else {
-                   return curry;
-               }
+           let totalSum = this.sumArr()
+           if(Number.isInteger(totalSum)){
+                return totalSum;
            }
        }
    }
 
-   curriedSumArr(){
+   curriedSumArr(fish){
     //future sum arr from click timing
+    let arr = []
+    console.log(arr)
+           return function curry(){
+               arr.push(this.timingCircleSize)
+               console.log(arr)
+               if(arr.length === fish.reels){
+                    console.log(arr.reduce((add, a) => add + a, 0))
+                    return arr.reduce((add, a) => add + a, 0)
+               } else {
+                   return curry;
+               }
+           }
    }
 }
     // minigame.position = 'relative'
