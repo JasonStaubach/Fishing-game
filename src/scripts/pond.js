@@ -107,6 +107,7 @@ export default class Pond{
 
     catch(fish){
         let minigame = new Minigame();
+        // debugger
         minigame.timingMinigame(fish, this.calculateScore.bind(this, fish))
         // let caught = false
         // if((caughtScore / fish.reels) < 20) caught = true;

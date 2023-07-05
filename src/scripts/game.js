@@ -50,7 +50,7 @@ export default class Game{
     makeHeaderButton(name, imgSrc){
         let newButton = document.createElement('button')
         newButton.setAttribute('id', name)
-        newButton.setAttribute('window.location.href','https://github.com/JasonStaubach')
+       
         newButton.setAttribute('type','submit')
         let img = document.createElement('img')
         img.setAttribute("src", imgSrc)

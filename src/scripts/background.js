@@ -51,7 +51,7 @@ export default class Background{
         }, 14);
         setTimeout(() => {
             this.score.drawScore()
-        }, 14);
+        }, 20);
     }
 
     drawBackground(){
