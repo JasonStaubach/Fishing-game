@@ -1,15 +1,21 @@
 import Fish from "./fish";
 import Game from "./game";
 import Score from "./score"
+import { timingMinigame } from "./reeling-clicks";
 
 export default class Pond{
     static COLOR = "lightblue"
     static RADIUS = 200;
-    constructor(ctx){
+    constructor(ctx, score, background, minigame){
         this.fishes = [];
+        this.score = score
+        this.background = background
+        this.minigame = minigame
+
         this.pondOutline = this.drawPond(ctx)
-        this.fishes.push(new Fish());
-        this.score = new Score(ctx, this.score);
+        for(let i = 0; i < 3; i++){
+            this.fishes.push(new Fish());
+        }
         this.canClick = true;
         this.ctx = ctx;
 
@@ -27,7 +33,7 @@ export default class Pond{
             ctx.clearRect(0,0,Game.PIX_X,Game.PIX_Y);
             this.drawPond(ctx);
             this.clickable(ctx);
-            this.score.drawScore(ctx)
+    
             this.fishes.forEach( fishy =>{
                 fishy.move(ctx, this.pondOutline);
                 fishy.draw(ctx);
@@ -64,19 +70,24 @@ export default class Pond{
     checkClick(e){
     //    let cursorX = e.pageX
     //    let cursorY = e.pageY
+    
         if(this.canClick){
             const canvasEl = document.getElementById("game-canvas");
             let cursorX = e.clientX - canvasEl.getBoundingClientRect().left
             let cursorY = e.clientY - canvasEl.getBoundingClientRect().top
-            this.fishes.forEach( fish => {
+            this.fishes.forEach( (fish, idx) => {
                 if((cursorX >= fish.pos[0] && cursorX <= (fish.pos[0] + 20)) &&
                 (cursorY >= fish.pos[1] && cursorY <= (fish.pos[1] + 10))){
+                    // console.log(fish.imagesrc)
+                    this.fishes = this.fishes.slice(0,idx).concat(this.fishes.slice(idx+1))
                     this.catch(fish);
                 }
         });
         }
-       this.canClick = false;
-       setTimeout(() => this.canClick = true, 3000)
+        if(this.canClick === true){
+            this.canClick = false;
+            setTimeout(() => this.canClick = true, 300) //set back to 3000 when not debugging
+        }
     }
 
     clickable(ctx){
@@ -88,14 +99,30 @@ export default class Pond{
         }
     }
 
-    catch(fish){
-        let caught = this.timingMinigame(fish)
+    async catch(fish){
+        this.minigame.timingMinigame(fish, this.calculateScore.bind(this, fish))
+        // let caught = false
+        // if((caughtScore / fish.reels) < 20) caught = true;
+        // if(caught){
+        //     this.score.addScore(fish.score);
+        //     // debugger
+        //     this.background.drawTopThree(this.score.topThree(fish))               //if necissary, adds fish to top 3 fish caught
+        //     this.score.drawScore()
+        //     console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
+        //     // console.log(fishArr.indexOf(this))
+        // } else {
+        //     console.log(`${fish.name} got away!`)
+        // }
+    }
 
+    calculateScore(fish, score){
+        let caught = false
+        if((score / fish.reels) < 20) caught = true;
         if(caught){
             this.score.addScore(fish.score);
             // debugger
-            this.score.topThree(fish)               //if necissary, adds fish to top 3 fish caught
-            this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
+            this.background.drawTopThree(this.score.topThree(fish))               //if necissary, adds fish to top 3 fish caught
+            this.score.drawScore()
             console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
             // console.log(fishArr.indexOf(this))
         } else {
@@ -103,16 +130,4 @@ export default class Pond{
         }
     }
 
-    timingMinigame(fish){
-        let minigame = document.createElement('canvas')
-        minigame.classList.add('minigame')
-        for(let i = 0; i < fish.reels; i++){       
-            let gradient = this.ctx.createLinearGradient(10, 90, 200, 90);
-            gradient.addColorStop(0, 'green');
-            gradient.addColorStop(1, 'white');
-            this.ctx.fillStyle = gradient;
-            this.ctx.fillRect(10, 10, 200, 250);
-        }
-        return true;
-    }
 }
