@@ -75,10 +75,11 @@ export default class Pond{
             const canvasEl = document.getElementById("game-canvas");
             let cursorX = e.clientX - canvasEl.getBoundingClientRect().left
             let cursorY = e.clientY - canvasEl.getBoundingClientRect().top
-            this.fishes.forEach( fish => {
+            this.fishes.forEach( (fish, idx) => {
                 if((cursorX >= fish.pos[0] && cursorX <= (fish.pos[0] + 20)) &&
                 (cursorY >= fish.pos[1] && cursorY <= (fish.pos[1] + 10))){
                     // console.log(fish.imagesrc)
+                    this.fishes = this.fishes.slice(0,idx).concat(this.fishes.slice(idx+1))
                     this.catch(fish);
                 }
         });
@@ -106,7 +107,7 @@ export default class Pond{
             // debugger
             this.background.drawTopThree(this.score.topThree(fish))               //if necissary, adds fish to top 3 fish caught
             this.score.drawScore()
-            this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
+            // this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
             console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
             // console.log(fishArr.indexOf(this))
         } else {

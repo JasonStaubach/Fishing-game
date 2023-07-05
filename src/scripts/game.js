@@ -16,10 +16,10 @@ export default class Game{
         this.background = new Background();
         this.score = 0;
 
-        this.makeHeaderButton("music","./src/images/sound-on.jpg")      //make button row
-        this.makeHeaderButton("game_sound","./src/images/sound-on.jpg")
-        this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
-        this.makeHeaderButton("github","src/images/github.jpg")
+        this.makeHeaderButton("music","./src/images/sound-off.jpg")      //make button row
+        this.makeHeaderButton("game_sound","./src/images/sound-off.jpg")
+        // this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
+        // this.makeHeaderButton("github","src/images/github.jpg")
 
         
         setTimeout(() => {              //timeout is so that the background can load before score added to it

@@ -69,3 +69,21 @@ button > img {
     height: 50px;
     padding: 0px;
 }
+
+div > form{
+    margin: 10px;
+    margin-left: 170px;
+    width: 59px;
+    height: 59px;
+    background-color: tan;
+    border: 5px groove black;
+    border-radius: 8px;
+    padding: 0px;
+}
+
+form > img {
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+}
