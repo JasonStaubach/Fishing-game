@@ -31,6 +31,7 @@ export default class Pond{
 
         setInterval(() => {
             ctx.clearRect(0,0,Game.PIX_X,Game.PIX_Y);
+            ctx.strokeStyle = 'black'
             this.drawPond(ctx);
             this.clickable(ctx);
     
@@ -57,7 +58,7 @@ export default class Pond{
         pond.bezierCurveTo(100,150,60, 170, 100, 200);
         pond.bezierCurveTo(100,200, 160, 245, 100, 300)
         pond.bezierCurveTo(100, 300, 40, 345, 50, 375)
-        ctx.stroke(pond);
+        // ctx.stroke(pond);
         return pond;
     }
 
@@ -86,15 +87,17 @@ export default class Pond{
         }
         if(this.canClick === true){
             this.canClick = false;
-            setTimeout(() => this.canClick = true, 300) //set back to 3000 when not debugging
+            setTimeout(() => this.canClick = true, 100) //set back to 3000 when not debugging
         }
     }
 
     clickable(ctx){
         ctx.font = "36px Lucida Console";
         if(this.canClick){
-            ctx.strokeText(`Click!`, 420, 50);
+            ctx.fillStyle = "green"
+            ctx.fillText(`Click!`, 420, 50);
         } else {
+            ctx.strokeStyle = "red"
             ctx.strokeText(`No click`, 400, 50);
         }
     }

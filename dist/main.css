@@ -25,7 +25,6 @@
 #minigame-canvas {
   z-index: 5;
   position: absolute;
-  border: 1px solid red;
 }
 
 #main {

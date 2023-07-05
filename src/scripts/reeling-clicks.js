@@ -15,13 +15,13 @@ export default class Minigame{
     timingMinigame (fish, completionCallback){
         // let mini = new Minigame()
        const minigame = document.getElementById('minigame-canvas')     //print background on background canvas
+       minigame.style.top = `${(fish.pos[1]) - 100}px`
+       minigame.style.left = `${(fish.pos[0]) - 100}px`
        const mgctx = minigame.getContext("2d");
        mgctx.clearRect(0,0,200,200)
+       console.log(minigame)
+       console.log(minigame)
        minigame.setAttribute('display', 'block')
-       minigame.setAttribute('top', `${(fish.pos[0])}px`)
-       console.log(minigame)
-       minigame.setAttribute('left',`${(fish.pos[1])}px`)
-       console.log(minigame)
 
        this.sumArr = this.curriedSumArr(fish);
        this.finishedFishing = false
