@@ -18,11 +18,15 @@ export default class FishDisplay{
 
         let fishImg = new Image();
         fishImg.src = `./src/images/${fish.name.replace(/\s+/g, '').toLowerCase()}.jpg`
+        ctx.ellipse(400, 250, 350, 200, 0, 0, Math.PI*2)
+        ctx.fillStyle = "#402F1D"
+        ctx.fill()
+
         fishImg.onload = () => {
-            ctx.drawImage(fishImg,200,100,600,350);   
+            ctx.drawImage(fishImg,190,165,400,200);   
             setTimeout(() => {
                 this.removeFishDisplay();
-            }, 1000)
+            }, 2500)
         }
     }
 
