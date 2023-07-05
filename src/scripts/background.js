@@ -63,10 +63,10 @@ export default class Background{
     }
 
     drawScoreHeader(){
-        this.bgctx.font = "44px Regular";
+        this.bgctx.font = "44px Bradley Hand, cursive";
         // console.log()
         this.bgctx.fillStyle = 'black';
-        this.bgctx.fillText(`Score: ${this.score.score || 0}`, 120, 50);
+        this.bgctx.fillText(`Score: ${this.score.score || 0}`, 450, 50);
 
         // this.bgctx.font = "24px Lucida Console"
         // this.bgctx.strokeText('Top 3 Rarest Fish', 600, 50)

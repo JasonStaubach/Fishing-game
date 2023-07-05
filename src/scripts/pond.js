@@ -10,7 +10,7 @@ export default class Pond{
         this.fishes = [];
         this.score = score
         this.background = background
-        //this.minigame = minigame
+        this.timer = this.timer()
 
         this.pondOutline = this.drawPond(ctx)
         for(let i = 0; i < 3; i++){
@@ -33,6 +33,8 @@ export default class Pond{
             ctx.clearRect(0,0,Game.PIX_X,Game.PIX_Y);
             ctx.strokeStyle = 'black'
             this.drawPond(ctx);
+            ctx.fillStyle = 'black'
+            ctx.fillText(this.timer(), 200, 50);
             this.clickable(ctx);
     
             this.fishes.forEach( fishy =>{
@@ -92,13 +94,13 @@ export default class Pond{
     }
 
     clickable(ctx){
-        ctx.font = "36px Lucida Console";
+        ctx.font = "36px Bradley Hand, cursive";
         if(this.canClick){
             ctx.fillStyle = "green"
-            ctx.fillText(`Click!`, 420, 50);
+            ctx.fillText(`Click!`, 50, 50);
         } else {
             ctx.strokeStyle = "red"
-            ctx.strokeText(`No click`, 400, 50);
+            ctx.strokeText(`No click`, 70, 50);
         }
     }
 
@@ -131,6 +133,21 @@ export default class Pond{
             // console.log(fishArr.indexOf(this))
         } else {
             console.log(`${fish.name} got away!`)
+        }
+    }
+
+    timer(){
+        let seconds = 0;
+        let minutes = 0
+        setInterval(() => {
+            seconds++;
+            if(seconds === 60){
+                seconds = 0;
+                minutes += 1;
+            }
+        }, 1000)
+        return function returnTime(){
+            return `Timer: ${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}`
         }
     }
 
