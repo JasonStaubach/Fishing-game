@@ -2,6 +2,7 @@ import Fish from "./fish";
 import Game from "./game";
 import Score from "./score"
 import Minigame from "./reeling-clicks";
+import FishDisplay from "./caught-fish-display";
 
 export default class Pond{
     static COLOR = "lightblue"
@@ -125,6 +126,8 @@ export default class Pond{
         let caught = false
         if((score / fish.reels) < 20) caught = true;
         if(caught){
+            let fishDisplay = new FishDisplay();
+            fishDisplay.displayFish(fish)
             this.score.addScore(fish.score);
             // debugger
             this.background.drawTopThree(this.score.topThree(fish))               //if necissary, adds fish to top 3 fish caught
