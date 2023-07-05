@@ -1,7 +1,7 @@
 import Pond from "./pond"
 import Score from "./score"
 import Background from "./background";
-import { makeMinigameCanvas } from "./reeling-clicks";
+import Minigame from "./reeling-clicks"
 
 export default class Game{
     static PIX_X = 1100;
@@ -23,11 +23,11 @@ export default class Game{
 
         
         setTimeout(() => {              //timeout is so that the background can load before score added to it
+            const minigame = new Minigame();
             this.score = new Score(this.background)
-            this.pond = new Pond(ctx, this.score, this.background);
+            this.pond = new Pond(ctx, this.score, this.background, minigame);
             this.background.getScore(this.score)
         }, 100);
-        makeMinigameCanvas();
     }
 
     score(){

@@ -6,10 +6,11 @@ import { timingMinigame } from "./reeling-clicks";
 export default class Pond{
     static COLOR = "lightblue"
     static RADIUS = 200;
-    constructor(ctx, score, background){
+    constructor(ctx, score, background, minigame){
         this.fishes = [];
         this.score = score
         this.background = background
+        this.minigame = minigame
 
         this.pondOutline = this.drawPond(ctx)
         for(let i = 0; i < 3; i++){
@@ -97,8 +98,8 @@ export default class Pond{
         }
     }
 
-    catch(fish){
-        let caught = timingMinigame(fish)
+    async catch(fish){
+        let caught = await this.minigame.timingMinigame(fish)
 
         if(caught){
             this.score.addScore(fish.score);
