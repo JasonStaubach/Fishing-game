@@ -12,7 +12,7 @@ export default class Minigame{
         document.getElementById("board-container").appendChild(minigame)
         this.circleRunning = false;
     }
-    async timingMinigame (fish, completionCallback){
+    timingMinigame (fish, completionCallback){
        const minigame = document.getElementById('minigame-canvas')     //print background on background canvas
        minigame.setAttribute('display', 'block')
        minigame.setAttribute('top', `${(fish.pos[0])}px`)

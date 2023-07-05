@@ -99,7 +99,7 @@ export default class Pond{
         }
     }
 
-    async catch(fish){
+    catch(fish){
         this.minigame.timingMinigame(fish, this.calculateScore.bind(this, fish))
         // let caught = false
         // if((caughtScore / fish.reels) < 20) caught = true;
