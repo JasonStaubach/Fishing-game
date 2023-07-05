@@ -12,6 +12,7 @@ export default class Pond{
         this.score = score
         this.background = background
         this.timer = this.timer()
+        this.overlay = false;
 
         this.pondOutline = this.drawPond(ctx)
         for(let i = 0; i < 3; i++){
@@ -26,7 +27,9 @@ export default class Pond{
                 count++;
                 let fish = new Fish();
                 this.fishes.push(fish);
-                fish.draw(ctx);
+                if(!this.overlay){
+                    fish.draw(ctx);
+                }
             }
         }, 10000)
 
@@ -37,11 +40,13 @@ export default class Pond{
             ctx.fillStyle = 'black'
             ctx.fillText(this.timer(), 200, 50);
             this.clickable(ctx);
-    
-            this.fishes.forEach( fishy =>{
-                fishy.move(ctx, this.pondOutline);
-                fishy.draw(ctx);
-            })
+            
+            if(!this.overlay){
+                this.fishes.forEach( fishy =>{
+                    fishy.move(ctx, this.pondOutline);
+                    fishy.draw(ctx);
+                })
+            }
         }, 50);
         this.checkClick = this.checkClick.bind(this);
         this.catch = this.catch.bind(this);
@@ -127,6 +132,7 @@ export default class Pond{
         let caught = false
         if((score / fish.reels) < 20) caught = true;
         if(caught){
+            this.overlay = true;
             let fishDisplay = new FishDisplay();
             fishDisplay.displayFish(fish)
             this.score.addScore(fish.score);
@@ -134,7 +140,7 @@ export default class Pond{
             this.background.drawTopThree(this.score.topThree(fish))               //if necissary, adds fish to top 3 fish caught
             this.score.drawScore()
             console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
-            // console.log(fishArr.indexOf(this))
+            setTimeout(() => this.overlay = false, 5010)
         } else {
             console.log(`${fish.name} got away!`)
         }
