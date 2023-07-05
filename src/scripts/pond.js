@@ -1,7 +1,7 @@
 import Fish from "./fish";
 import Game from "./game";
 import Score from "./score"
-import { timingMinigame } from "./reeling-clicks";
+import Minigame from "./reeling-clicks";
 
 export default class Pond{
     static COLOR = "lightblue"
@@ -10,7 +10,7 @@ export default class Pond{
         this.fishes = [];
         this.score = score
         this.background = background
-        this.minigame = minigame
+        //this.minigame = minigame
 
         this.pondOutline = this.drawPond(ctx)
         for(let i = 0; i < 3; i++){
@@ -100,7 +100,8 @@ export default class Pond{
     }
 
     catch(fish){
-        this.minigame.timingMinigame(fish, this.calculateScore.bind(this, fish))
+        let minigame = new Minigame();
+        minigame.timingMinigame(fish, this.calculateScore.bind(this, fish))
         // let caught = false
         // if((caughtScore / fish.reels) < 20) caught = true;
         // if(caught){

@@ -35,9 +35,9 @@ export default class Game{
         
         
         setTimeout(() => {              //timeout is so that the background can load before score added to it
-            const minigame = new Minigame();
+            //const minigame = new Minigame();
             this.score = new Score(this.background)
-            this.pond = new Pond(ctx, this.score, this.background, minigame);
+            this.pond = new Pond(ctx, this.score, this.background);
             this.background.getScore(this.score)
         }, 100);
     }

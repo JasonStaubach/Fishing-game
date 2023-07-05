@@ -13,13 +13,15 @@ export default class Minigame{
         this.circleRunning = false;
     }
     timingMinigame (fish, completionCallback){
+        // let mini = new Minigame()
        const minigame = document.getElementById('minigame-canvas')     //print background on background canvas
+       const mgctx = minigame.getContext("2d");
+       mgctx.clearRect(0,0,200,200)
        minigame.setAttribute('display', 'block')
        minigame.setAttribute('top', `${(fish.pos[0])}px`)
        console.log(minigame)
        minigame.setAttribute('left',`${(fish.pos[1])}px`)
        console.log(minigame)
-       const mgctx = minigame.getContext("2d");
 
        this.sumArr = this.curriedSumArr(fish);
        this.finishedFishing = false
@@ -48,6 +50,7 @@ export default class Minigame{
            if(Number.isInteger(totalSum)){
                 this.finishedFishing = true;
                 this.completionCallback(totalSum)
+                this.removeMinigame()
                 //return totalSum;
            } else {
                 return undefined;
@@ -72,11 +75,12 @@ export default class Minigame{
          }
    }
 
-   finSum(sum){
-        return sum;
+   removeMinigame(){
+    document.getElementById("minigame-canvas").remove()
    }
 
    minigameCircle(mgctx){
+    mgctx.clearRect(0,0,200,200)
     if(this.circleRunning){
         this.circleRunning = false;
     } else {
