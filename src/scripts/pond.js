@@ -100,14 +100,29 @@ export default class Pond{
     }
 
     async catch(fish){
-        let caught = await this.minigame.timingMinigame(fish)
+        this.minigame.timingMinigame(fish, this.calculateScore.bind(this, fish))
+        // let caught = false
+        // if((caughtScore / fish.reels) < 20) caught = true;
+        // if(caught){
+        //     this.score.addScore(fish.score);
+        //     // debugger
+        //     this.background.drawTopThree(this.score.topThree(fish))               //if necissary, adds fish to top 3 fish caught
+        //     this.score.drawScore()
+        //     console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
+        //     // console.log(fishArr.indexOf(this))
+        // } else {
+        //     console.log(`${fish.name} got away!`)
+        // }
+    }
 
+    calculateScore(fish, score){
+        let caught = false
+        if((score / fish.reels) < 20) caught = true;
         if(caught){
             this.score.addScore(fish.score);
             // debugger
             this.background.drawTopThree(this.score.topThree(fish))               //if necissary, adds fish to top 3 fish caught
             this.score.drawScore()
-            // this.fishes = (this.fishes.slice(0,this.fishes.indexOf(fish)).concat(this.fishes.slice(this.fishes.indexOf(fish) + 1)))
             console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
             // console.log(fishArr.indexOf(this))
         } else {

@@ -45,6 +45,11 @@ body {
   height: 240px;
 }
 
+div #button-group {
+  border: 5px groove black;
+  border-radius: 8px;
+}
+
 div > button {
   margin: 10px;
   margin-left: 170px;
