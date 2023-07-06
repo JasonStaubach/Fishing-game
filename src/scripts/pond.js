@@ -12,7 +12,7 @@ export default class Pond{
         this.fishes = [];
         this.score = score
         this.background = background
-        this.timer = this.timer()
+        this.timer = this.timer(0,0)
         this.overlay = false;
         this.gameover = false;
 
@@ -146,9 +146,9 @@ export default class Pond{
         }
     }
 
-    timer(){
-        let seconds = 0;
-        let minutes = 0
+    timer(sec, min){
+        let seconds = sec;
+        let minutes = min;
         setInterval(() => {
             seconds++;
             if(seconds === 60){

@@ -44,7 +44,7 @@ export default class Game{
             this.score = new Score(this.background)
             this.pond = new Pond(ctx, this.score, this.background, this.intro);
             this.background.getScore(this.score)
-            this.IntroScreen = new IntroScreen()
+            this.IntroScreen = new IntroScreen(this.pond)
         }, 100);
     }
 
