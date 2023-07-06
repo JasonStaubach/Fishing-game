@@ -21,7 +21,7 @@ export default class Fish{
             {name: "Juvenile Drum",reels: 1, score: 200, color: "#000000", imagesrc: "./src/images/juvenile-drum.jpg"},
             {name:"Lionfish",reels: 3, score: 225, color: "orange", imagesrc: "./src/images/lionfish.jpg"},
             {name:"Clownfish",reels: 1, score: 100, color: "#orange", imagesrc: "./src/images/clownfish.jpg"},
-            {name: "Queen Angelfish", reels: 3, score: 400, color: "#0075a3", imagesrc: "./src/images/queen-angelfish.jpg"},
+            {name: "Angelfish", reels: 3, score: 400, color: "#0075a3", imagesrc: "./src/images/queen-angelfish.jpg"},
             {name: "Seahorse", reels: 2, score: 250, color: "yellow", imagesrc: "./src/images/seahorse.jpg"},
             {name:"Shrimp", reels: 1, score: 75, color: "pink", imagesrc: "./src/images/shrimp.jpg"},
             {name:"Sea Turtle", reels: 3, score: 350, color: "green", imagesrc: "./src/images/sea-turtle.jpg"},

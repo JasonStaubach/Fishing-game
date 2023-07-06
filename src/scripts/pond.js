@@ -3,16 +3,18 @@ import Game from "./game";
 import Score from "./score"
 import Minigame from "./reeling-clicks";
 import FishDisplay from "./caught-fish-display";
+import EndScreen from "./endscreen";
 
 export default class Pond{
     static COLOR = "lightblue"
     static RADIUS = 200;
-    constructor(ctx, score, background, minigame){
+    constructor(ctx, score, background){
         this.fishes = [];
         this.score = score
         this.background = background
         this.timer = this.timer()
         this.overlay = false;
+        this.gameover = false;
 
         this.pondOutline = this.drawPond(ctx)
         for(let i = 0; i < 3; i++){
@@ -22,30 +24,34 @@ export default class Pond{
         this.ctx = ctx;
 
         setInterval(() => {
-            let count = 0
-            while(count < 2){
-                count++;
-                let fish = new Fish();
-                this.fishes.push(fish);
-                if(!this.overlay){
-                    fish.draw(ctx);
+            if(!this.gameover){
+                let count = 0
+                while(count < 2){
+                    count++;
+                    let fish = new Fish();
+                    this.fishes.push(fish);
+                    if(!this.overlay){
+                        fish.draw(ctx);
+                    }
                 }
             }
         }, 10000)
 
         setInterval(() => {
             ctx.clearRect(0,0,Game.PIX_X,Game.PIX_Y);
-            ctx.strokeStyle = 'black'
-            this.drawPond(ctx);
-            ctx.fillStyle = 'black'
-            ctx.fillText(this.timer(), 200, 50);
-            this.clickable(ctx);
-            
-            if(!this.overlay){
-                this.fishes.forEach( fishy =>{
-                    fishy.move(ctx, this.pondOutline);
-                    fishy.draw(ctx);
-                })
+            if(!this.gameover){
+                ctx.strokeStyle = 'black'
+                this.drawPond(ctx);
+                ctx.fillStyle = 'black'
+                ctx.fillText(this.timer(), 200, 50);
+                this.clickable(ctx);
+                
+                if(!this.overlay){
+                    this.fishes.forEach( fishy =>{
+                        fishy.move(ctx, this.pondOutline);
+                        fishy.draw(ctx);
+                    })
+                }
             }
         }, 50);
         this.checkClick = this.checkClick.bind(this);
@@ -103,10 +109,10 @@ export default class Pond{
         ctx.font = "36px Bradley Hand, cursive";
         if(this.canClick){
             ctx.fillStyle = "green"
-            ctx.fillText(`Click!`, 50, 50);
+            ctx.fillText(`Go Fish!`, 50, 50);
         } else {
             ctx.strokeStyle = "red"
-            ctx.strokeText(`No click`, 70, 50);
+            ctx.strokeText(`No fish`, 50, 50);
         }
     }
 
@@ -136,13 +142,23 @@ export default class Pond{
             let fishDisplay = new FishDisplay();
             fishDisplay.displayFish(fish)
             this.score.addScore(fish.score);
-            // debugger
+            
+            if(this.score.score >= 500){
+                let endscreen = new EndScreen()
+                this.gameover = true;
+                endscreen.showEndscreen(this.timer())
+            }
+
+
             this.background.drawTopThree(this.score.topThree(fish))               //if necissary, adds fish to top 3 fish caught
             this.score.drawScore()
             console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
-            setTimeout(() => this.overlay = false, 5010)
+            setTimeout(() => this.overlay = false, 4020)
         } else {
             console.log(`${fish.name} got away!`)
+            
+            let fishDisplay = new FishDisplay();
+            fishDisplay.displayNoFish()
         }
     }
 

@@ -6,7 +6,7 @@ export default class FishDisplay{
         minigame.setAttribute('z-index','12')
         minigame.setAttribute('width', '1100px')
         minigame.setAttribute('height', '600px')
-        minigame.setAttribute('position', 'absolute')
+        //minigame.setAttribute('position', 'absolute')
         minigame.setAttribute('display', 'none')
         document.getElementById("board-container").appendChild(minigame)
     }
@@ -29,8 +29,20 @@ export default class FishDisplay{
             ctx.drawImage(fishImg,270, 260,440,220);   
             setTimeout(() => {
                 this.removeFishDisplay();
-            }, 5000)
+            }, 4000)
         }
+    }
+
+    displayNoFish(){
+        const fishDisplay = document.getElementById('fish-display-canvas')     //print background on background canvas
+        const ctx = fishDisplay.getContext("2d")
+
+        ctx.font = "30px Bradley Hand, cursive"
+        ctx.fillStyle = 'red'
+        ctx.fillText(`Did Not Catch Fish`, 240, 100)  
+        setTimeout(() => {
+            this.removeFishDisplay();
+        }, 4000) 
     }
 
     removeFishDisplay(){

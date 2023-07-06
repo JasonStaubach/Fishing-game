@@ -48,10 +48,10 @@ export default class Background{
                 return
             }
         }
-        }, 14);
+        }, 40);
         setTimeout(() => {
             this.score.drawScore()
-        }, 20);
+        }, 200);
     }
 
     drawBackground(){

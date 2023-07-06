@@ -27,6 +27,14 @@
   position: absolute;
 }
 
+#endgame-canvas {
+  z-index: 20;
+  margin: 4px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
 #main {
   display: flex;
   margin-left: 340px;
