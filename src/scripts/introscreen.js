@@ -2,15 +2,15 @@ import Game from './game'
 
 export default class IntroScreen{
     constructor(){
+        
         let img = document.createElement('img')
         img.setAttribute('id', 'howtoplay' )
         img.setAttribute('src', '/src/images/howtoplay.jpg')
         document.getElementById("board-container").appendChild(img)
 
-        img.addEventListener("click", function (){
-            debugger
+        img.addEventListener("mouseover", function (){
             img.style.display = "none"
-          })
+          });
     }
     //     const intro = document.createElement('canvas')         //create background canvas
     //     intro.setAttribute('id','howtoplay')

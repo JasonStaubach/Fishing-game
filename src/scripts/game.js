@@ -13,10 +13,10 @@ export default class Game{
         header.setAttribute("src", "src/images/thefishinhole.jpg")
         header.classList.add("the-fishin-hole-sign")
         document.getElementById("main").appendChild(header)
-
         this.background = new Background()
-
+        
         this.IntroScreen = new IntroScreen()
+
 
         this.score = 0;
         this.music = true;
