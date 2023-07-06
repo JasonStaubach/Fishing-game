@@ -4,14 +4,15 @@ export default class IntroScreen{
     constructor(callback){
         this.callback = callback
 
-        const intro = document.createElement('howtoplay-canvas')         //create background canvas
-        intro.setAttribute('id','howtoplayscreen')
+        const intro = document.createElement('canvas')         //create background canvas
+        intro.setAttribute('id','howtoplay')
         intro.setAttribute('width', Game.PIX_X)
         intro.setAttribute('height', Game.PIX_Y)
         document.getElementById("board-container").appendChild(intro)
+        debugger
 
         const backgroundCanvas = document.getElementById('howtoplay')     //print background on background canvas
-        ctx = backgroundCanvas.getContext("2d");
+        let ctx = backgroundCanvas.getContext("2d");
         let back = new Image();
         back.src = "./src/images/howtoplay.jpg"
         back.onload = () => {
@@ -22,6 +23,6 @@ export default class IntroScreen{
 
     removeIntroScreen(){
         this.callback();
-        document.getElementById("howtoplay-canvas").remove()
+        document.getElementById("howtoplay").remove()
     }
 }
