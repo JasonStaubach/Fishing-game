@@ -21,7 +21,7 @@ export default class FishDisplay{
         ctx.ellipse(500, 350, 400, 250, 0, 0, Math.PI*2)
        // debugger
         if(fish.score <= 100) ctx.fillStyle = "#402F1D"
-        if(fish.score < 300) ctx.fillStyle = "grey"
+        if(fish.score < 300 && fish.score > 100) ctx.fillStyle = "grey"
         if(fish.score >= 300) ctx.fillStyle = "orange"
         ctx.fill()
         ctx.fillStyle = "yellow"
