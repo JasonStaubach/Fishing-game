@@ -5,17 +5,16 @@
     height: 600px;
     // z-index: -5;
 }
-
 #howtoplay{
-    z-index: 12;
-    height: 800px;
-    width: 1100px;
-}
-#protector{
     position: absolute;
-    pointer-events: none;
-    z-index: 11;
+    border: 8px groove black;
+    border-radius: 8px;
+    z-index: 1;
+    height: 600px;
+    width: 1100px;
+    top: 330px;
 }
+
 #game-canvas{
     display: flex;
     justify-content: end;
@@ -23,7 +22,6 @@
     border-radius: 8px;
     position: absolute;
     z-index: 0;
-
 }
 #background{
     z-index: -1;

@@ -6,9 +6,9 @@ export default class IntroScreen{
         let img = document.createElement('img')
         img.setAttribute('id', 'howtoplay' )
         img.setAttribute('src', '/src/images/howtoplay.jpg')
-        document.getElementById("board-container").appendChild(img)
+        document.getElementById("instructions").appendChild(img)
 
-        img.addEventListener("mouseover", function (){
+        img.addEventListener("click", function (){
             img.style.display = "none"
           });
     }

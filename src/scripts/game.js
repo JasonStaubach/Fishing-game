@@ -14,10 +14,9 @@ export default class Game{
         header.classList.add("the-fishin-hole-sign")
         document.getElementById("main").appendChild(header)
         this.background = new Background()
+
         
-        this.IntroScreen = new IntroScreen()
-
-
+        
         this.score = 0;
         this.music = true;
         this.ctx = ctx;
@@ -29,7 +28,7 @@ export default class Game{
         audio.loop = true;
         
         document.getElementById("main").appendChild(audio)
-
+        
         this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
         document.getElementById("linkedin").setAttribute('onclick',"window.location.href='https://linkedin.com/JasonStaubach';")
         this.makeHeaderButton("github","src/images/github.jpg")
@@ -45,6 +44,7 @@ export default class Game{
             this.score = new Score(this.background)
             this.pond = new Pond(ctx, this.score, this.background, this.intro);
             this.background.getScore(this.score)
+            this.IntroScreen = new IntroScreen()
         }, 100);
     }
 
