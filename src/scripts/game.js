@@ -33,7 +33,6 @@ export default class Game{
         let musicButton = document.getElementById("music-button")
         musicButton.addEventListener("click", this.toggleMute);
         
-        
         setTimeout(() => {              //timeout is so that the background can load before score added to it
             //const minigame = new Minigame();
             this.score = new Score(this.background)
@@ -44,6 +43,10 @@ export default class Game{
 
     score(){
         return this.score
+    }
+
+    makeInstructions(){
+        let instructions = document.createElement('div')
     }
 
 

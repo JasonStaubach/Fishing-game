@@ -66,9 +66,7 @@ export default class Pond{
 
         pond.moveTo(50, 375);
         pond.bezierCurveTo(100, 500, 700, 700, 600, 400);
-        // ctx.moveTo(600,400)
         pond.bezierCurveTo(600, 400, 500, 40, 100, 150);
-        // ctx.moveTo(100,150)
         pond.bezierCurveTo(100,150,60, 170, 100, 200);
         pond.bezierCurveTo(100,200, 160, 245, 100, 300)
         pond.bezierCurveTo(100, 300, 40, 345, 50, 375)
@@ -83,17 +81,15 @@ export default class Pond{
     }
 
     checkClick(e){
-    //    let cursorX = e.pageX
-    //    let cursorY = e.pageY
-    
         if(this.canClick){
             const canvasEl = document.getElementById("game-canvas");
             let cursorX = e.clientX - canvasEl.getBoundingClientRect().left
             let cursorY = e.clientY - canvasEl.getBoundingClientRect().top
+
             this.fishes.forEach( (fish, idx) => {
                 if((cursorX >= fish.pos[0] && cursorX <= (fish.pos[0] + 20)) &&
                 (cursorY >= fish.pos[1] && cursorY <= (fish.pos[1] + 10))){
-                    // console.log(fish.imagesrc)
+                    
                     this.fishes = this.fishes.slice(0,idx).concat(this.fishes.slice(idx+1))
                     this.catch(fish);
                 }
@@ -101,7 +97,7 @@ export default class Pond{
         }
         if(this.canClick === true){
             this.canClick = false;
-            setTimeout(() => this.canClick = true, 500) //set back to 3000 when not debugging
+            setTimeout(() => this.canClick = true, 500) 
         }
     }
 

@@ -41,17 +41,17 @@ export default class Minigame{
    }
 
    clickTiming(e){
-        // debugger
-       const canvasEl = document.getElementById("minigame-canvas");
+       const canvasEl = document.getElementById("minigame-canvas")
+
        let cursorX = e.clientX - canvasEl.getBoundingClientRect().left
        let cursorY = e.clientY - canvasEl.getBoundingClientRect().top
+
        if(cursorX > 0 && cursorX < 200 && cursorY > 0 && cursorY < 200){
            let totalSum = this.sumArr()
            if(Number.isInteger(totalSum)){
-                this.finishedFishing = true;
+                this.finishedFishing = true
                 this.completionCallback(totalSum)
                 this.removeMinigame()
-                //return totalSum;
            } else {
                 return undefined;
            }
@@ -59,16 +59,14 @@ export default class Minigame{
    }
 
    curriedSumArr(fish){
-    //future sum arr from click timing
-    let arr = []
+    let arr = []        //arr holds all previous scores
     console.log(arr)
         return function curry(){
-           arr.push(this.timingCircleSize)
-        //    console.log(this.timingCircleSize)
-           console.log(arr)
+           
+            arr.push(this.timingCircleSize)     //uses radius of minigame as score
+
            if(arr.length === fish.reels){
-                console.log(arr.reduce((add, a) => add + a, 0))
-                return arr.reduce((add, a) => add + a, 0)
+                return arr.reduce((add, a) => add + a, 0)   //sum and return score
            } else {
                return curry;
            }
