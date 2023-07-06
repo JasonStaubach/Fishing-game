@@ -5,8 +5,15 @@
     height: 600px;
     // z-index: -5;
 }
-
-
+#howtoplay{
+    position: absolute;
+    border: 8px groove black;
+    border-radius: 8px;
+    z-index: 1;
+    height: 600px;
+    width: 1100px;
+    top: 330px;
+}
 
 #game-canvas{
     display: flex;
@@ -15,7 +22,6 @@
     border-radius: 8px;
     position: absolute;
     z-index: 0;
-
 }
 #background{
     z-index: -1;
