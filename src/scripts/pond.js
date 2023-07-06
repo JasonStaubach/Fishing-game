@@ -14,7 +14,7 @@ export default class Pond{
         this.background = background
         this.timer = this.timer()
         this.overlay = false;
-        this.gameover = false;
+        this.gameover = true;
 
         this.pondOutline = this.drawPond(ctx)
         for(let i = 0; i < 3; i++){
@@ -81,6 +81,7 @@ export default class Pond{
     }
 
     checkClick(e){
+        this.gameover = false;
         if(this.canClick){
             const canvasEl = document.getElementById("game-canvas");
             let cursorX = e.clientX - canvasEl.getBoundingClientRect().left

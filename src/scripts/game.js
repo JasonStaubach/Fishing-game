@@ -14,16 +14,20 @@ export default class Game{
         header.classList.add("the-fishin-hole-sign")
         document.getElementById("main").appendChild(header)
 
-        this.background = new Background();
+        this.background = new Background()
+
+        this.IntroScreen = new IntroScreen()
+
         this.score = 0;
         this.music = true;
+        this.ctx = ctx;
         this.makeHeaderButton = this.makeHeaderButton.bind(this);
 
         let audio = document.createElement("audio")
         audio.setAttribute('id', 'music-audio')
         audio.setAttribute("src", "src/images/forest-lullaby.mp3")
         audio.loop = true;
-        console.log(audio)
+        
         document.getElementById("main").appendChild(audio)
 
         this.makeHeaderButton("linkedin","./src/images/linkedin.jpg")
@@ -34,22 +38,21 @@ export default class Game{
         this.makeHeaderButton("music-button","./src/images/sound-off.jpg")      //make button row
         let musicButton = document.getElementById("music-button")
         musicButton.addEventListener("click", this.toggleMute);
-
-        let howtoplay = new IntroScreen(this.beginGame)
+        let howtoplay = new IntroScreen(this.beginGame, this.background, this.ctx, this.score)
         
-        // setTimeout(() => {              //timeout is so that the background can load before score added to it
-        //     //const minigame = new Minigame();
-        //     this.score = new Score(this.background)
-        //     this.pond = new Pond(ctx, this.score, this.background);
-        //     this.background.getScore(this.score)
-        // }, 100);
+        setTimeout(() => {              //timeout is so that the background can load before score added to it
+            //const minigame = new Minigame();
+            this.score = new Score(this.background)
+            this.pond = new Pond(ctx, this.score, this.background, this.intro);
+            this.background.getScore(this.score)
+        }, 100);
     }
 
-    beginGame(){
-        this.score = new Score(this.background)
-        this.pond = new Pond(ctx, this.score, this.background);
-        this.background.getScore(this.score)
-    }
+    // beginGame(background, ctx, score){
+    //     this.score = new Score(background)
+    //     this.pond = new Pond(ctx, score, background);
+    //     this.background.getScore(score)
+    // }
 
     score(){
         return this.score
