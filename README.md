@@ -9,7 +9,7 @@ The user is given a pond full of dynamically swimming fish that they must click 
 This project was made almost entirely in canvas, with layers of canvas on top of each other to create the fish, pond, and ui around it.
 ## UI explanation 
 <img width="116" alt="go fishing" src="https://github.com/JasonStaubach/Fishing-game/assets/33754025/654692f0-2d71-452d-bb73-8ce6f40b74bb">
-<img width="116" alt="go fishing" src="https://github.com/JasonStaubach/Fishing-game/assets/33754025/23b04d79-e549-4a7c-bf52-2c1929750e33">
+<img width="130" alt="go fishing" src="https://github.com/JasonStaubach/Fishing-game/assets/33754025/23b04d79-e549-4a7c-bf52-2c1929750e33">
 
 
 You can only click once every half second, to prevent users from spamming and losing the reeling minigame before they realize it is open. This display will turn red and say no fishing when you are unable to click.
