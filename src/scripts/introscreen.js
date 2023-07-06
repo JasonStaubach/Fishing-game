@@ -7,7 +7,7 @@ export default class IntroScreen{
         img.setAttribute('src', '/src/images/howtoplay.jpg')
         document.getElementById("board-container").appendChild(img)
 
-        img.addEventListener("mousedown", function() {
+        img.addEventListener("click", function (){
             debugger
             img.style.display = "none"
           })
