@@ -27,6 +27,8 @@ export default class FishDisplay{
         ctx.fillStyle = "yellow"
         ctx.font = "46px Bradley Hand, cursive"
         ctx.fillText(`${fish.name}`.padEnd(15, " ") +  `Score: ${fish.score}`, 240, 240)
+        ctx.fontStyle = 'black'
+        ctx.strokeText(`${fish.name}`.padEnd(15, " ") +  `Score: ${fish.score}`, 240, 240)
         fishImg.onload = () => {
             ctx.drawImage(fishImg,270, 260,440,220);   
             setTimeout(() => {
@@ -44,7 +46,7 @@ export default class FishDisplay{
         ctx.fillText(`Did Not Catch Fish`, 240, 100)  
         setTimeout(() => {
             this.removeFishDisplay();
-        }, 4000) 
+        }, 3500) 
     }
 
     removeFishDisplay(){

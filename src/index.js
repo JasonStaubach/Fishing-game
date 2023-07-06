@@ -1,7 +1,5 @@
 
-import Fish from "./scripts/fish"
 import Game from "./scripts/game"
-import Pond from "./scripts/pond"
 
 document.addEventListener("DOMContentLoaded", () => {
     const canvasEl = document.getElementById("game-canvas");
