@@ -9,6 +9,8 @@ The user is given a pond full of dynamically swimming fish that they must click 
 This project was made almost entirely in canvas, with layers of canvas on top of each other to create the fish, pond, and ui around it.
 ## UI explanation 
 <img width="116" alt="go fishing" src="https://github.com/JasonStaubach/Fishing-game/assets/33754025/654692f0-2d71-452d-bb73-8ce6f40b74bb">
+<img width="116" alt="go fishing" src="https://github.com/JasonStaubach/Fishing-game/assets/33754025/23b04d79-e549-4a7c-bf52-2c1929750e33">
+
 
 You can only click once every half second, to prevent users from spamming and losing the reeling minigame before they realize it is open. This display will turn red and say no fishing when you are unable to click.
 
@@ -30,8 +32,6 @@ This is the pop-up that will show up whenever you successfully catch a fish
 ### Minigame Click Handling and Curried Score Function
 
 <img width="334" alt="minigame-click-handling-and-curried-function" src="https://github.com/JasonStaubach/Fishing-game/assets/33754025/53a36ff2-ab94-41fe-b1fb-6e396cc43a4d">
-![no fish](https://github.com/JasonStaubach/Fishing-game/assets/33754025/e8276746-9b9c-4c3e-8d6b-8889e5203527)
-
 
 Custom click handling checks to make sure that the clicks are within the bounds of the minigame, and then upon the last click, immediately remove the minigame from game. Each click calls upon a curried score function that keeps track of the clicks and stores them for the final result.
 
