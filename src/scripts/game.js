@@ -38,7 +38,7 @@ export default class Game{
         this.makeHeaderButton("music-button","./src/images/sound-off.jpg")      //make button row
         let musicButton = document.getElementById("music-button")
         musicButton.addEventListener("click", this.toggleMute);
-        let howtoplay = new IntroScreen(this.beginGame, this.background, this.ctx, this.score)
+        //let howtoplay = new IntroScreen(this.beginGame, this.background, this.ctx, this.score)
         
         setTimeout(() => {              //timeout is so that the background can load before score added to it
             //const minigame = new Minigame();
