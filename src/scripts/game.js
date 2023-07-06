@@ -1,6 +1,8 @@
 import Pond from "./pond"
 import Score from "./score"
 import Background from "./background";
+import IntroScreen from "./introscreen";
+
 
 export default class Game{
     static PIX_X = 1100;
@@ -32,13 +34,21 @@ export default class Game{
         this.makeHeaderButton("music-button","./src/images/sound-off.jpg")      //make button row
         let musicButton = document.getElementById("music-button")
         musicButton.addEventListener("click", this.toggleMute);
+
+        let howtoplay = new IntroScreen(this.beginGame)
         
-        setTimeout(() => {              //timeout is so that the background can load before score added to it
-            //const minigame = new Minigame();
-            this.score = new Score(this.background)
-            this.pond = new Pond(ctx, this.score, this.background);
-            this.background.getScore(this.score)
-        }, 100);
+        // setTimeout(() => {              //timeout is so that the background can load before score added to it
+        //     //const minigame = new Minigame();
+        //     this.score = new Score(this.background)
+        //     this.pond = new Pond(ctx, this.score, this.background);
+        //     this.background.getScore(this.score)
+        // }, 100);
+    }
+
+    beginGame(){
+        this.score = new Score(this.background)
+        this.pond = new Pond(ctx, this.score, this.background);
+        this.background.getScore(this.score)
     }
 
     score(){
