@@ -1,3 +1,5 @@
+import Game from "./game"
+
 export default class EndScreen{
     constructor(){
         let endscreen = document.createElement('canvas')     //creating minigame canvas, and attaching it to board div
@@ -22,5 +24,26 @@ export default class EndScreen{
         ctx.font = "46px Bradley Hand, cursive"
         ctx.fillText(`Your time to reach at least`, 200, 200)
         ctx.fillText( `5000 points was ${timer.slice(7)}`, 200 , 350)
+        holdendscreen.addEventListener("click", function(){
+            let child = document.getElementById('button-group').lastElementChild
+            while (child) {
+                document.getElementById('button-group').removeChild(child)
+                child = document.getElementById('button-group').lastElementChild
+            }
+            child = document.getElementById('main').lastElementChild
+            while (child) {
+                document.getElementById('main').removeChild(child)
+                child = document.getElementById('main').lastElementChild
+            }
+            holdendscreen.remove()
+            document.getElementById('background').remove()
+            document.getElementById("game-canvas").remove()
+            
+            let gamecanvas = document.createElement('canvas')
+            gamecanvas.setAttribute('id', 'game-canvas')
+            const ctx = gamecanvas.getContext("2d");
+
+            let game = new Game(ctx)
+        })
     }
 }

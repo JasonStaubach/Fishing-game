@@ -1,7 +1,7 @@
 import Game from './game'
 
 export default class IntroScreen{
-    constructor(){
+    constructor(pond){
         
         let img = document.createElement('img')
         img.setAttribute('id', 'howtoplay' )
@@ -10,6 +10,7 @@ export default class IntroScreen{
 
         img.addEventListener("click", function (){
             img.style.display = "none"
+            // pond.timer = pond.timer(0,0)
           });
     }
     //     const intro = document.createElement('canvas')         //create background canvas
