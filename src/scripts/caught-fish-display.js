@@ -20,7 +20,7 @@ export default class FishDisplay{
         fishImg.src = `./src/images/${fish.name.replace(/\s+/g, '').toLowerCase()}.jpg`
         ctx.ellipse(500, 350, 400, 250, 0, 0, Math.PI*2)
        // debugger
-        ctx.fillStyle = "#402F1D"
+        ctx.fillStyle = "orange"//"#402F1D"
         ctx.fill()
         ctx.fillStyle = "yellow"
         ctx.font = "46px Bradley Hand, cursive"

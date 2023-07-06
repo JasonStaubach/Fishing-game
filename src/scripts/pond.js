@@ -101,7 +101,7 @@ export default class Pond{
         }
         if(this.canClick === true){
             this.canClick = false;
-            setTimeout(() => this.canClick = true, 100) //set back to 3000 when not debugging
+            setTimeout(() => this.canClick = true, 500) //set back to 3000 when not debugging
         }
     }
 
@@ -120,18 +120,6 @@ export default class Pond{
         let minigame = new Minigame();
         // debugger
         minigame.timingMinigame(fish, this.calculateScore.bind(this, fish))
-        // let caught = false
-        // if((caughtScore / fish.reels) < 20) caught = true;
-        // if(caught){
-        //     this.score.addScore(fish.score);
-        //     // debugger
-        //     this.background.drawTopThree(this.score.topThree(fish))               //if necissary, adds fish to top 3 fish caught
-        //     this.score.drawScore()
-        //     console.log(`Caught a ${fish.name} and earned ${fish.score} points!`);
-        //     // console.log(fishArr.indexOf(this))
-        // } else {
-        //     console.log(`${fish.name} got away!`)
-        // }
     }
 
     calculateScore(fish, score){
@@ -143,7 +131,7 @@ export default class Pond{
             fishDisplay.displayFish(fish)
             this.score.addScore(fish.score);
             
-            if(this.score.score >= 500){
+            if(this.score.score >= 5000){
                 let endscreen = new EndScreen()
                 this.gameover = true;
                 endscreen.showEndscreen(this.timer())
