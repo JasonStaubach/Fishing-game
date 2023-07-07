@@ -12,7 +12,7 @@ This project was made almost entirely in canvas, with layers of canvas on top of
 <img width="130" alt="go fishing" src="https://github.com/JasonStaubach/Fishing-game/assets/33754025/23b04d79-e549-4a7c-bf52-2c1929750e33">
 
 
-You can only click once every half second, to prevent users from spamming and losing the reeling minigame before they realize it is open. This display will turn red and say no fishing when you are unable to click.
+You can only click once every half second, to prevent users from spamming and losing the reeling minigame before they realize it is open. This display and the fishes outlines will turn red and say no fishing when you are unable to click.
 
 <img width="140" alt="small circle" src="https://github.com/JasonStaubach/Fishing-game/assets/33754025/f3771252-db8b-4eef-8510-803b98d2dbbc">
 <img width="130" alt="big circle" src="https://github.com/JasonStaubach/Fishing-game/assets/33754025/ea1f21e3-80f1-42f4-aeb0-f14a7739ee03">
