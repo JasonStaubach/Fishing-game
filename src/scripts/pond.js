@@ -65,8 +65,8 @@ export default class Pond{
         let pond = new Path2D();
 
         pond.moveTo(50, 375);
-        pond.bezierCurveTo(100, 500, 700, 700, 600, 400);
-        pond.bezierCurveTo(600, 400, 500, 40, 100, 150);
+        pond.bezierCurveTo(100, 500, 690, 690, 590, 400);
+        pond.bezierCurveTo(590, 400, 495, 43, 100, 150);
         pond.bezierCurveTo(100,150,60, 170, 100, 200);
         pond.bezierCurveTo(100,200, 160, 245, 100, 300)
         pond.bezierCurveTo(100, 300, 40, 345, 50, 375)

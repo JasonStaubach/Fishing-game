@@ -5,7 +5,7 @@ export default class IntroScreen{
         
         let img = document.createElement('img')
         img.setAttribute('id', 'howtoplay' )
-        img.setAttribute('src', '/src/images/howtoplay.jpg')
+        img.setAttribute('src', '/src/images/howtoplay!.jpg')
         document.getElementById("instructions").appendChild(img)
 
         img.addEventListener("click", function (){
