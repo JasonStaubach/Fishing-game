@@ -3,12 +3,12 @@ import Game from './game'
 export default class IntroScreen{
     constructor(pond){
         
-        let img = document.createElement('img')
-        img.setAttribute('id', 'howtoplay' )
-        debugger
-        img.setAttribute('src', 'src/images/howtoplay.jpg')
-        document.getElementById("instructions").appendChild(img)
-
+        // let img = document.createElement('img')
+        // // img.setAttribute('id', 'howtoplay' )
+        // // debugger
+        // // img.setAttribute('src', 'src/images/howtoplay.jpg')
+        // document.getElementById("instructions").appendChild(img)
+        let img = document.getElementById("howtoplay")
         img.addEventListener("click", function (){
             img.style.display = "none"
             // pond.timer = pond.timer(0,0)
