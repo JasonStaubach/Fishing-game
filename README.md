@@ -3,7 +3,8 @@
 The Fishing Hole is a browser click-based game that allows the user to catch a variety of fish with hand-drawn stying and simple controls. This includes over 20 custom fish with unique reel counts score na images.
 The user is given a pond full of dynamically swimming fish that they must click on. Once they successfully click a fish, they will then be given a pop-up of the reeling minigame, where the user must then click in a ring as the ring pulses larger and smaller. If the user clicks when the ring is too large, then the user will not catch the fish! Rarer fish will give the user more points, but will also take more reels to successfully catch. On the left side there will be a display of the 3 rarest fish that the user has caught. The user wins the game when they reach 5000 points, and their score is how long it took them to reach that score. 
 
-<img width="635" alt="fishing game" src="https://github.com/JasonStaubach/Fishing-game/assets/33754025/22af20f6-ba97-465f-976f-48d1f939e207">
+![pondfulloffish](https://github.com/JasonStaubach/Fishing-game/assets/33754025/4ab22a12-d674-4087-8fb5-ce57232f23cc)
+
 
 
 This project was made almost entirely in canvas, with layers of canvas on top of each other to create the fish, pond, and ui around it.
