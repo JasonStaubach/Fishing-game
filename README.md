@@ -1,4 +1,4 @@
-#The Fishing Hole
+##The Fishing Hole
 
 The Fishing Hole is a browser click-based game that allows the user to catch a variety of fish with hand-drawn stying and simple controls. This includes over 20 custom fish with unique reel counts score na images.
 The user is given a pond full of dynamically swimming fish that they must click on. Once they successfully click a fish, they will then be given a pop-up of the reeling minigame, where the user must then click in a ring as the ring pulses larger and smaller. If the user clicks when the ring is too large, then the user will not catch the fish! Rarer fish will give the user more points, but will also take more reels to successfully catch. On the left side there will be a display of the 3 rarest fish that the user has caught. The user wins the game when they reach 5000 points, and their score is how long it took them to reach that score. 
